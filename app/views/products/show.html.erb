@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="h2 text-center" style="margin-top: 100px;">Product Informations </div>
+  <div class="row row-cols-1 row-cols-md-2" style="margin-top: 80px;">
+    <div class="col mb-4">
+      <div class="card">
+        <%= image_tag(@product.first_image_url, :alt => @product.name, class: "card-img-top") %>
+        <!-- <img src="https://user-images.githubusercontent.com/72025145/138038943-ba43c9b7-9b61-4762-a6d3-9d2c0b42510e.jpg" class="card-img-top" alt="Para"> -->
+        <div class="card-body">
+          <h5 class="card-title"><%= @product.name %></h5>
+          <p class="card-text my-5"><%= @product.description %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+  <div class="card">
+    <%= image_tag(@product.second_image_url, :alt => @product.name, class: "card-img-top") %>
+    <!-- <img src="https://user-images.githubusercontent.com/72025145/138038943-ba43c9b7-9b61-4762-a6d3-9d2c0b42510e.jpg" class="card-img-top" alt="Para"> -->
+    <div class="card-body">
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<%= link_to 'Back', pharmacien_path(current_user.id), class:"btn btn-outline-success ml-5 mt-5 text-center" %>

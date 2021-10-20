@@ -1,0 +1,11 @@
+development: 
+  cloud_name: "ddvdir4ab"
+  api_key: "315297728627154"
+  api_secret: "YXDeDdSX2Ws2YDbWr5Ckpy6EWdc"
+  # secure: true
+
+production:
+  cloud_name: "ddvdir4ab"
+  api_key: "315297728627154"
+  api_secret: "YXDeDdSX2Ws2YDbWr5Ckpy6EWdc"
+  # secure:true

@@ -1,0 +1,55 @@
+<div class="h2 text-center mb-5 d-flex justify-content-center" style="margin-top: 100px;">
+<div class="">Pharmacy Détails</div>
+<% if current_user.favorites.find_by(pharmacy_id: @pharmacy.id).present? %>
+    <div class="ml-5"><a class="btn btn-outline-danger" data-confirm="Delete favorites ?" data-method="delete" href="<%= favorite_path(id: current_user.favorites.find_by(pharmacy_id: @pharmacy.id).id, pharmacy_id: @pharmacy.id) %>"> Delete an Favorite</a></div>
+<% else %>
+    <div class="ml-5"><a class="btn btn-outline-success a-hover" data-confirm="Sur to add an favorites ?" data-method="post" href="<%= favorites_path(pharmacy_id: @pharmacy.id) %>"> And an Favorite</a></div>
+<% end %>
+ </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-3"></div>
+    <div class="col-lg-6 col-md-6">
+      <div class="card card-block mb-5 p-5" style=" background-color: #78c9c5;">
+          <p style="font-family: 'Ubuntu', sans-serif; color: #fff; font-size: 18px; line-height: 2.0;">
+              <strong class="mr-5">Name:</strong><%= @pharmacy.name %><br/>
+              <strong class="mr-5">Contact:</strong><%= @pharmacy.contact %><br/>
+              <strong class="mr-5">Whatsapp:</strong><a href="<%= @pharmacy.whatsapp %>">whatsapp link</a><br/>
+              <strong class="mr-5">City:</strong><%= @pharmacy.city %><br/>
+              <strong class="mr-5">Quartier:</strong><%= @pharmacy.quartier %>
+          </p>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3"></div>
+  </div> 
+</div>
+<div class="container">
+    <div class="h2 text-center"> All Product </div>
+    <div class="row mt-5">
+        <% @products.each do |product|%>
+            <div class="col-md-3 col-sm-6 item">
+                <div class="card item-card card-block">
+                    <img class="-img-" src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+                    <h5 class="item-card-title mt-3 ml-2 mb-3">
+                        <%= product.name %>
+                    </h5>
+                    <p class="card-text">
+                        <strong class="ml-2">Disponibilité:</strong><% if product.available %> Disponible <% else %> Indisponible pour le moment <% end %><br>
+                    </p>
+                    <a class="btn a-hover" href="<%= product_path(product.id) %>">Re&ad More</a>
+                </div>
+            </div>
+            <% end %>
+    </div>
+<%= link_to 'Back', pharmacies_path, class:"btn btn-outline-success ml-5 mt-5 text-center" %>
+</div>
+
+
+<p>Commentaires </p>
+  
+<div id="comments_area" class="">
+
+    <%= render partial: 'comments/index', locals: { comments: @comments, pharmacy: @pharmacy } %>
+
+</div>
+<%= render partial: 'comments/form', locals: { comment: @comment, pharmacy: @pharmacy } %>

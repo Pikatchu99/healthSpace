@@ -1,0 +1,88 @@
+body {
+    background-color: #fff;
+    color: #333;
+    margin: 33px;
+}
+
+body,
+p,
+ol,
+ul,
+td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
+
+a {
+    color: #000;
+}
+
+a:visited {
+    color: #666;
+}
+
+a:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+th {
+    padding-bottom: 5px;
+}
+
+td {
+    padding: 0 5px 7px;
+}
+
+div.field,
+div.actions {
+    margin-bottom: 10px;
+}
+
+#notice {
+    color: green;
+}
+
+.field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+    border-radius: 05px;
+}
+
+#error_explanation {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb
+}
+
+#error_explanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c05660;
+    color: #fff;
+}
+
+#error_explanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+
+label {
+    display: block;
+}

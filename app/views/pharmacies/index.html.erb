@@ -1,0 +1,51 @@
+<section class="bg-account-pages vh-100" style="margin-top: 100px">
+<div class="container">
+  <div class="d-flex">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <%= submit_tag ("Search"), class: "btn btn-outline-success my-2 my-sm-0 pt-1 pb-1"%>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="text-center mt-5 text-info alert alert-info "> Pharmacie available in your city</div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+    <% @pharmacies.each do |pharmacy| %>
+    <div class="d-flex justify-content-between alert alert-info">
+      <div class="alert alert-warning">
+        <%= pharmacy.name %>
+      </div>
+      <div>
+          <%= link_to 'Show', pharmacy, class: "btn btn-outline-info text-white" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+  </tbody>
+</table>
