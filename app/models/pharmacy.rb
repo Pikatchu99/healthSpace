@@ -8,7 +8,7 @@ class Pharmacy < ApplicationRecord
 
     belongs_to :user, optional: true
     has_many :products, dependent: :destroy
-    has_many :schedules
+    has_many :schedules, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :favorites, dependent: :destroy
     has_many :favorite_users, through: :favorites, source: :user
@@ -16,5 +16,7 @@ class Pharmacy < ApplicationRecord
     scope  :find_name, -> (search_key){where("name LIKE ?","%#{search_key}%")}
     scope  :find_city, -> (search_key){where("city LIKE ?","%#{search_key}%")}
     scope  :find_quartier, -> (search_key){where("quartier LIKE ?","%#{search_key}%")}
+
+    paginates_per 10
     # private
 end

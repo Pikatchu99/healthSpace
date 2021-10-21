@@ -18,7 +18,6 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Description", with: @product.description
     fill_in "Name", with: @product.name
     click_on "Create Product"
-
     assert_text "Product was successfully created"
     click_on "Back"
   end

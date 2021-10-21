@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='https://unpkg.com/ionicons@4.2.0/dist/css/ionicons.min.css'>
+    
     <!-- favicon -->
     <link rel="shortcut icon" href="">
     <!-- favicon -->
@@ -64,30 +64,30 @@
                 <ul class="navbar-nav navbar-center">
                     <li class="nav-item">
                         <% if !current_user %>
-                            <a href="<%= new_user_session_path %>" class="nav-link">Log In</a>
+                            <a href="<%= new_user_session_path %>" class="nav-link">Se connecter</a>
                         <% else %>
                             <a href="<%= profile_path(current_user.id) %>" class="nav-link">Profile</a>
                         <% end %>
                     </li>
                     <li class="nav-item">
-                        <a href="<%= us_about_us_path %>" class="nav-link">About Us</a>
+                        <a href="<%= us_about_us_path %>" class="nav-link">À propos de nous</a>
                     </li>
                     <li class="nav-item">
-                        <a href="<%= us_help_me_path %>" class="nav-link">Help Me</a>
+                        <a href="<%= us_help_me_path %>" class="nav-link">Aidez Moi</a>
                     </li>
                     <li class="nav-item d-inline-block d-lg-none">
                         <% if !current_user %>
-                            <a href="<%=  new_user_registration_path %>" class="nav-link">Sign Up</a>
+                            <a href="<%=  new_user_registration_path %>" class="nav-link">S'inscrire</a>
                             <% else %>
-                            <%= link_to "Logout", destroy_user_session_path, method: :DELETE, class: "nav-link"%>
+                            <%= link_to "Deconnexion", destroy_user_session_path, method: :DELETE, class: "nav-link"%>
                         <% end %>
                     </li>
                 </ul>
                 <div class="navbar-button d-none d-lg-inline-block">
                     <% if !current_user %>
-                        <a href="<%=  new_user_registration_path %>" class="btn btn-sm btn-soft-primary btn-round">Sign Up</a>
+                        <a href="<%=  new_user_registration_path %>" class="btn btn-sm btn-soft-primary btn-round">S'inscrire</a>
                         <% else %>
-                            <%= link_to "Logout", destroy_user_session_path, method: :DELETE, class: "a-hover nav-link"%>
+                            <%= link_to "Deconnexion", destroy_user_session_path, method: :DELETE, class: "a-hover nav-link"%>
                     <% end %>
                 </div>
             </div>

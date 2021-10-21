@@ -1,43 +1,35 @@
-<section class="bg-account-pages vh-100" style="margin-top: 100px">
-<div class="h2 text-center">Search Pharmacie</div>
-<div class="container-fluid">
-  <div class="d-flex justify-content-around">
-    <%= form_with(url: search_pharmacies_path, method: :get, local: true) do |f| %>
-    <span class="fs-6">name </span><%= f.text_field :pn, placeholder: "Search by name" %>
-    <span class="fs-6">city </span> <%= f.select :pc, ["Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], prompt: 'Search by city' %>
-    <span class="fs-6">quartier </span> <%= f.text_field :pq, placeholder: "Search by quartier" %>
-      <%= f.submit 'search' ,class:'btn btn-outline-success me-5'%>
-    <% end %>
+<section class="" style="margin-top: 100px">
+  <div class="h2 text-center">Chercher une Pharmacie</div>
+  <div class="container-fluid">
+    <div class="d-flex justify-content-around">
+      <%= form_with(url: search_pharmacies_path, method: :get, local: true) do |f| %>
+      <span class="fs-6"></span><%= f.text_field :pn, placeholder: "Nom" %>
+      <span class="fs-6"></span> <%= f.select :pc, ["Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], prompt: 'Ville' %>
+      <span class="fs-6"></span> <%= f.text_field :pq, placeholder: "Quartier" %>
+        <%= f.submit 'Chercher' ,class:'btn btn-outline-success me-5'%>
+      <% end %>
+    </div>
   </div>
-</div>
-<!--
-<div class="container">
-  <div class="d-flex">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    < %= submit_tag ("Search"), class: "btn btn-outline-success my-2 my-sm-0 pt-1 pb-1"%>
-  </div>
-</div>
--->
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-      <div class="text-center mt-5 text-info alert alert-info "> Pharmacie available in your city</div>
-    </div>
-    <div class="col-md-4">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <div class="text-center mt-5 text-info alert alert-info "> Pharmacie disponible dans votre ville.</div>
+      </div>
+      <div class="col-md-4">
+      </div>
     </div>
   </div>
-</div>
   <div class="container">
-  <div class="btn btn-outline-baclk mb-2 float-right"><%= @pharmacies.count %> Pharmacies</a></div>
+  <div class="btn btn-outline-baclk mb-2 float-right"><%= @pharmacies.count %> Pharmacies trouvées</a></div>
     <table class="table">
-      <thead>
+      <thead style="background-color: #78c9c5 !important;">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Show Button</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Voir</th>
         </tr>
       </thead>
       <tbody>
@@ -46,7 +38,7 @@
         <tr>
         <th scope="row"><%= count %></th>
           <td><%= pharmacy.name %></td>
-          <td><%= link_to 'Show', pharmacy, class: "btn btn-outline-info" %></td>
+          <td><%= link_to 'Plus', pharmacy, class: "btn btn-outline-info" %></td>
         </tr>
         <% count += 1%>
       <% end %>
@@ -54,3 +46,6 @@
     </table>
   </div>
 </section>
+<div class="ml-5">
+  <%= paginate @pharmacies %>
+</div>

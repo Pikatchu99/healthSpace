@@ -29,7 +29,7 @@
                                                   <div class="text-center mt-3">
                                                       <img src="https://user-images.githubusercontent.com/72025145/137684945-16f6e824-e651-47a5-bded-13e990702f77.png" alt=""
                                                               height="44">
-                                                      <p class="text-muted mt-3">Sign up for a new Account
+                                                      <p class="text-muted mt-3">Créer un nouveau compte
                                                       </p>
                                                   </div>
                                                   <div class="p-3 custom-form">
@@ -46,23 +46,23 @@
                                                           </div>
           
                                                           <div class="form-group">
-                                                              <%= f.label :city %><br />
+                                                              <label>Ville</label><br />
                                                               <%= f.select :city, [ "Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], class: "form-control" %>
                                                           </div>
 
                                                           <div class="form-group">
-                                                            <%= f.label :quartier %><br /><span style="font-size: 10px; color: red;">Make sure you enter the correct name of your neighborhood</span>
+                                                            <label>Quartier</label><br /><span style="font-size: 10px; color: red;">Assurez-vous d'entrer le bon nom de votre quartier.</span>
                                                             <%= f.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control" %>
                                                           </div>
 
                                                           <div class="form-group">
-                                                              <label >Who are you ?</label> <br/><span class="text-info" style="font-size: 10px"><strong>Patient: I need find a pharmacy<br/>Pharmcien: I have an Pharmacy</strong></span><br/>
+                                                              <label >Qui êtes vous ?</label> <br/><span class="text-info" style="font-size: 10px"><strong>Patient: Je cherche une pharmacie<br/>Pharmcien: J'ai une Pharmacie</strong></span><br/>
                                                               <%= f.select :user_role, [ "Patient", "Pharmacien"], class: "form-control" %>
                                                           </div>
                                                           <div class="form-group">
                                                             <%= f.label :password %>
                                                             <% if @minimum_password_length %>
-                                                            <em>(<%= @minimum_password_length %> characters minimum)</em>
+                                                            <em>(<%= @minimum_password_length %> caractères minimum)</em>
                                                             <% end %><br />
                                                             <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "userpassword" %>
                                                           </div>                                                                
@@ -76,7 +76,7 @@
                                                           </div>
           
                                                           <div class="mt-4 mb-0 text-center">
-                                                              <p class="mb-0">I already have an account.<a href="<%= new_user_session_path %>" class="text-success">Sign in</a></p>
+                                                              <p class="mb-0">J'ai deja un compte.<a href="<%= new_user_session_path %>" class="text-success">Se connecter</a></p>
                                                           </div>
                                                         <% end %>
                                                   </div>

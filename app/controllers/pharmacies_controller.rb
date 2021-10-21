@@ -4,27 +4,27 @@ class PharmaciesController < ApplicationController
 
   # GET /pharmacies or /pharmacies.json
   def index
-    @pharmacies = Pharmacy.where(city: current_user.city)
+    @pharmacies = Pharmacy.where(city: current_user.city).page(params[:page]).per(10)
   end
   # GET /search/?parameters
   def search
     session[:search] = {'name' => params[:pn], 'city' => params[:pc], 'quartier' => params[:pq], 'product' => params[:pr], 'availability' => params[:pa]}
     if params[:pn].present? && params[:pc].present? && params[:pq].present?
-      @pharmacies = Pharmacy.find_name(params[:pn]).find_city(params[:pc]).find_quartier(params[:pq])
+      @pharmacies = Pharmacy.find_name(params[:pn]).find_city(params[:pc]).find_quartier(params[:pq]).page(params[:page]).per(10)
     elsif params[:pn].present? && params[:pc].present? && params[:pq].blank?
-      @pharmacies = Pharmacy.find_name(params[:pn]).find_city(params[:pc])
+      @pharmacies = Pharmacy.find_name(params[:pn]).find_city(params[:pc]).page(params[:page]).per(10)
     elsif params[:pn].present? && params[:pc].blank? && params[:pq].present?
-      @pharmacies = Pharmacy.find_name(params[:pn]).find_quartier(params[:pq])
+      @pharmacies = Pharmacy.find_name(params[:pn]).find_quartier(params[:pq]).page(params[:page]).per(10)
     elsif params[:pn].blank? && params[:pc].present? && params[:pq].present?
-      @pharmacies = Pharmacy.find_city(params[:pc]).find_quartier(params[:pq])
+      @pharmacies = Pharmacy.find_city(params[:pc]).find_quartier(params[:pq]).page(params[:page]).per(10)
     elsif params[:pn].present? && params[:pc].blank? && params[:pq].blank?
-      @pharmacies = Pharmacy.find_name(params[:pn])
+      @pharmacies = Pharmacy.find_name(params[:pn]).page(params[:page]).per(10)
     elsif params[:pn].blank? && params[:pc].present? && params[:pq].blank?
-      @pharmacies = Pharmacy.find_city(params[:pc])
+      @pharmacies = Pharmacy.find_city(params[:pc]).page(params[:page]).per(10)
     elsif params[:pn].blank? && params[:pc].blank? && params[:pq].present?
-      @pharmacies = Pharmacy.find_quartier(params[:pq])
+      @pharmacies = Pharmacy.find_quartier(params[:pq]).page(params[:page]).per(10)
     else
-      @pharmacies = Pharmacy.where(city: current_user.city)
+      @pharmacies = Pharmacy.where(city: current_user.city).page(params[:page]).per(10)
     end
     render :index
   end
@@ -59,7 +59,22 @@ class PharmaciesController < ApplicationController
     @products = Product.where(pharmacy_id: @pharmacy.id)
     @comments = @pharmacy.comments
     @comment = @pharmacy.comments.build
-    @comment.user_id = current_user.id
+    @day = DateTime.now.strftime("%w").to_i
+    if @day == 1
+      @when = @pharmacy.schedules[0].lundi
+    elsif @day == 2
+      @when = @pharmacy.schedules[0].mardi
+    elsif @day == 3
+      @when = @pharmacy.schedules[0].mercredi
+    elsif @day == 4
+      @when = @pharmacy.schedules[0].jeudi
+    elsif @day == 5
+      @when = @pharmacy.schedules[0].vendredi
+    elsif @day == 6
+      @when = @pharmacy.schedules[0].samedi
+    elsif @day == 0
+      @when = @pharmacy.schedules[0].dimanche
+    end
   end
   
   # GET /pharmacies/new
@@ -84,7 +99,7 @@ class PharmaciesController < ApplicationController
     @pharmacy.user_id = current_user.id
     respond_to do |format|
       if @pharmacy.save
-        format.html { redirect_to new_schedule_path, notice: "Pharmacy was successfully created. Now add your opening hours." }
+        format.html { redirect_to new_schedule_path, notice: "Pharmacie crée avec succès. Maintenant ajoutez vos  horaires d'ouvertures." }
         format.json { render :show, status: :created, location: @pharmacy }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -97,7 +112,7 @@ class PharmaciesController < ApplicationController
   def update
     respond_to do |format|
       if @pharmacy.update(pharmacy_params)
-        format.html { redirect_to edit_schedule_path(@pharmacy.schedules.ids), notice: "Pharmacy was successfully updated." }
+        format.html { redirect_to edit_schedule_path(@pharmacy.schedules.ids), notice: "Votre pharmacie a été mise à jour avec succès." }
         format.json { render :show, status: :ok, location: @pharmacy }
       else
         format.html { render :edit, status: :unprocessable_entity }

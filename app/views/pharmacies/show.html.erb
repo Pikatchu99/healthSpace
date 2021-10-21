@@ -1,11 +1,100 @@
-<div class="h2 text-center" style="margin-top: 100px;">Search Product</div>
+<style>
+  figure { margin:0px;}
+img {max-width:100%;}
+/* ================== Badge Products CSS ========================*/
+
+.products {
+    width: 320px;
+    height: 213px;
+    background: #f8f8f8;
+    display: inline-block;
+    position: relative;
+    margin: 15px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* ================== Badge Overlay CSS ========================*/
+.badge-overlay {
+    position: absolute;
+    left: 0%;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 100;
+    -webkit-transition: width 1s ease, height 1s ease;
+    -moz-transition: width 1s ease, height 1s ease;
+    -o-transition: width 1s ease, height 1s ease;
+    transition: width 0.4s ease, height 0.4s ease
+}
+
+/* ================== Badge CSS ========================*/
+.badge {
+    margin: 0;
+    padding: 0;
+    color: white;
+    padding: 10px 10px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    line-height: normal;
+    /* text-transform: uppercase; */
+    background: #ed1b24;
+}
+
+.badge::before, .badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    margin: 0 -1px;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    min-width: 55px
+}
+
+.badge::before {
+    right: 100%
+}
+
+.badge::after {
+    left: 100%
+}
+
+/* ================== Badge Position CSS ========================*/
+
+.top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    -ms-transform: translateX(30%) translateY(0%) rotate(45deg);
+    -webkit-transform: translateX(30%) translateY(0%) rotate(45deg);
+    transform: translateX(30%) translateY(0%) rotate(45deg);
+    -ms-transform-origin: top left;
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+}
+
+/* ================== Badge color CSS ========================*/
+.badge.red {
+    background: #ed1b24;
+}
+.badge.green {
+    background: #78c9c5;
+}
+
+</style>
+
+<div class="h2 text-center" style="margin-top: 100px;">Chercher un Produit</div>
 <div class="container-fluid">
   <div class="d-flex justify-content-around">
     <%= form_with(url: search_products_path, method: :get, local: true) do |f| %>
-    <span class="fs-6">By Product Name</span> <%= f.text_field :pr, placeholder: "Search by product name" %>
-    <span class="fs-6">By Product availability </span> <%= f.check_box :pa %>
-    <span class="fs-6"></span> <%= f.hidden_field :id , value: @pharmacy.id %>
-      <%= f.submit 'search' ,class:'btn btn-outline-success me-5'%>
+    <span class="fs-6"></span> <%= f.text_field :pr, placeholder: "Nom du produit" %>
+    <span class="fs-6 ml-5">Produit disponible ? </span> <%= f.check_box :pa %>
+    <span class="fs-6 mr-5"></span> <%= f.hidden_field :id , value: @pharmacy.id %>
+      <%= f.submit 'Chercher' ,class:'btn btn-outline-success me-5'%>
     <% end %>
   </div>
 </div>
@@ -15,7 +104,7 @@
 <% if current_user.favorites.find_by(pharmacy_id: @pharmacy.id).present? %>
     <div class="ml-5"><a class="btn btn-outline-danger" data-confirm="Delete favorites ?" data-method="delete" href="<%= favorite_path(id: current_user.favorites.find_by(pharmacy_id: @pharmacy.id).id, pharmacy_id: @pharmacy.id) %>"> Delete an Favorite</a></div>
 <% else %>
-    <div class="ml-5"><a class="btn btn-outline-success a-hover" data-confirm="Sur to add an favorites ?" data-method="post" href="<%= favorites_path(pharmacy_id: @pharmacy.id) %>"> And an Favorite</a></div>
+    <div class="ml-5"><a class="btn btn-outline-success a-hover" data-confirm="Sur to add an favorites ?" data-method="post" href="<%= favorites_path(pharmacy_id: @pharmacy.id) %>"> Ajouter en favoris</a></div>
 <% end %>
  </div>
 <div class="container">
@@ -25,19 +114,22 @@
           <p style="font-family: 'Ubuntu', sans-serif; color: #fff; font-size: 18px; line-height: 2.0;">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                <strong class="mr-5">Name:</strong>
-                <strong class="mr-5">Contact:</strong>
-                <strong class="mr-5">Whatsapp:</strong>
-                <strong class="mr-5">City:</strong><br>
-                <strong class="mr-5">Quartier:</strong>
+                  <strong class="mr-5">Name:</strong>
+                  <strong class="mr-5">Contact:</strong>
+                  <strong class="mr-5">Whatsapp:</strong>
+                  <strong class="mr-5">City:</strong><br>
+                  <strong class="mr-5">Quartier:</strong>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                <%= @pharmacy.name %><br/>
-                <%= @pharmacy.contact %><br/>
-                <%= @pharmacy.whatsapp %><br/>
-                <%= @pharmacy.city %><br/>
-                <%= @pharmacy.quartier %>
+                  <%= @pharmacy.name %><br/>
+                  <%= @pharmacy.contact %><br/>
+                  <%= @pharmacy.whatsapp %><br/>
+                  <%= @pharmacy.city %><br/>
+                  <%= @pharmacy.quartier %>
                 </div>
+                <div class="badge-overlay">
+                <span class="top-right badge red">Today<br/><%= @when %><br/></span>
+            </div>
             </div>
           </p>
       </div>
@@ -70,34 +162,49 @@
     </div>
   </div> 
 </div>
+<% if @products.count >= 1%>
 <div class="container">
-    <div class="h2 text-center"> All Product </div>
+    <div class="h2 text-center">Tous les produits de cette pharmacie </div>
     <div class="row mt-5">
         <% @products.each do |product|%>
             <div class="col-md-3 col-sm-6 item">
                 <div class="card item-card card-block">
-                    <img class="-img-" src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+                    <!-- <img class="-img-" src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset"> -->
+                    <% if product.first_image_url %>
+                      <%= image_tag(product.first_image_url, :alt => product.name, class: "card-img-top") %>
+                    <% else %>
+                      <%= image_tag(product.first_image_temp, :alt => product.name, class: "card-img-top") %>
+                    <% end %>
                     <h5 class="item-card-title mt-3 ml-2 mb-3">
                         <%= product.name %>
                     </h5>
+                    <div class="badge-overlay">
+                      <span class="top-right badge <% if product.available %> green <% else %>red <% end %>"><br/><% if product.available %> Disponible <% else %>Indisponible <% end %></span>
+                    </div>
                     <p class="card-text">
-                        <strong class="ml-2">Disponibilité:</strong><% if product.available %> Disponible <% else %> Indisponible pour le moment <% end %><br>
+                        <strong class="ml-2">Disponibilité:</strong><% if product.available %> Disponible <% else %><span class="ml-2 text-justify">Indisponible pour le <span class="ml-2"> moment </span></span><% end %><br>
                     </p>
-                    <a class="btn a-hover" href="<%= product_path(product.id) %>">Show More</a>
+                    <a class="btn a-hover" href="<%= product_path(product.id) %>">Voir ce produit</a>
                 </div>
             </div>
             <% end %>
     </div>
 </div>
 
+<% else %>
+<div class=" text-center h2">Aucun Produits</div>
+<% end %>
 
-<p>Commentaires </p>
-  
-<div id="comments_area" class="">
+<% if current_user.user_role != "Pharmacien" %>
+  <p>Commentaires </p>  
+  <div id="comments_area" class="">
 
-    <%= render partial: 'comments/index', locals: { comments: @comments, pharmacy: @pharmacy } %>
-
+  <%= render partial: 'comments/index', locals: { comments: @comments, pharmacy: @pharmacy } %>
 </div>
+
 <%= render partial: 'comments/form', locals: { comment: @comment, pharmacy: @pharmacy } %>
 
-<%= link_to 'Back', pharmacies_path, class:"btn btn-outline-success ml-5 mt-5 text-center" %>
+<% else %>
+<div class="mb-5"></div>
+<% end %>
+<%= link_to 'Retour', pharmacies_path, class:"btn btn-outline-success ml-5 mt-5 mb-5 text-center" %>

@@ -17,6 +17,7 @@ gem 'faker'
 gem 'phonelib'
 gem 'rails_admin', '~> 2.2', '>= 2.2.1'
 gem 'cancancan'
+gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do

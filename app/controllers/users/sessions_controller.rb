@@ -22,10 +22,10 @@ class Users::SessionsController < Devise::SessionsController
   
   def after_sign_in_path_for(resource_or_scope)
     if current_user.user_role == "Pharmacien" && current_user.pharmacy.nil?
-      flash[:notice] = "Welcome Back.You must create your Pharmacy."
+      flash[:notice] = "Bon retour parmis nous.En tant que pharmacien vous devez crée votre pharmacie."
       new_pharmacy_path
     else
-      flash[:notice] = "Welcome Back #{current_user.name}."
+      flash[:notice] = "Bon retour parmis nous #{current_user.name}."
      pharmacies_path
     end
   end

@@ -4,7 +4,13 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.where(pharmacy_id: current_user.pharmacy.id)
+    if current_user.user_role == "Patient"
+      redirect_to pharmacies_path, alert: "❌ Accès non autorisé. ❌"
+    elsif current_user.user_role == "Pharmacien"
+      redirect_to pharmacien_path(current_user.id), notice: "Vous pouvez voir vos produits ici sur votre dashboard."
+    else
+      redirect_to rails_admin_path
+    end
   end
 
   # GET /products/1 or /products/1.json
@@ -31,7 +37,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to pharmacien_path(current_user.id), notice: "Product was successfully created." }
+        format.html { redirect_to pharmacien_path(current_user.id), notice: "Produit crée avec succès." }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +50,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to pharmacien_path(current_user.id), notice: "Product was successfully updated." }
+        format.html { redirect_to pharmacien_path(current_user.id), notice: "Produit mis à jour avec succès." }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +63,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to pharmacien_path(current_user.id), notice: "Product was successfully destroyed." }
+      format.html { redirect_to pharmacien_path(current_user.id), notice: "Le produit a été détruit avec succès." }
       format.json { head :no_content }
     end
   end

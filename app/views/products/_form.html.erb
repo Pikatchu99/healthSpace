@@ -27,7 +27,7 @@
                                                 <div class="text-center mt-3">
                                                     <img src="https://user-images.githubusercontent.com/72025145/137684945-16f6e824-e651-47a5-bded-13e990702f77.png" alt=""
                                                             height="44">
-                                                    <p class="text-muted mt-3"><% if params[:where] == "update" %> Update Product Informations <% else %> Create New Product. <% end %></p>
+                                                    <p class="text-muted mt-3"><% if params[:where] == "update" %> Mettre à jour ce produit <% else %> Créer un nouveau produit. <% end %></p>
                                                 </div>
                                                 <div class="p-3 custom-form">
                                                         <%= form_with(model: product, local: true) do |form| %>
@@ -66,16 +66,11 @@
 
                                                         <div class="form-group">
                                                           <%= form.check_box :available, style: "widht: 5em;" %>
-                                                          <%= form.label :available %>
+                                                          <label>Disponible ?</label>
                                                         </div>
-
-                                                        <!-- <div class="form-group">
-                                                            < %= form.label :quartier %> or (neighborhood) of pharmacy<br /><span style="font-size: 10px; color: red;">Make sure you enter the correct name of your neighborhood</span>
-                                                            < %= form.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control" %>
-                                                        </div> -->
                                                         
                                                         <div class="mt-3">
-                                                        <%= form.submit "Save Product", class: "btn btn-primary btn-block" %>
+                                                        <%= form.submit "Enregistrer le produit", class: "btn btn-primary btn-block" %>
                                                         </div>
                                                     <% end %>
                                                 </div>

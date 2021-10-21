@@ -1,25 +1,24 @@
 <div class="container" style="margin-top: 100px;">
-    <div class="text-center">Welcome <%= @pharmacien.name %></div>
-    <% @pharmacy = Pharmacy.find(@pharmacien.pharmacy.id) %>
-    <div class="text-center mb-5 ">MY PHARMACY: <%= @pharmacien.pharmacy.name %> <a href="<%= edit_pharmacy_path(@pharmacien.pharmacy.id, where: "update") %>" class="ml-5 btn btn-outline-info" >Edit Pharmacy Informations</a><a href="<%= edit_schedule_path(@pharmacy.schedules.ids) %>" class="ml-5 btn btn-outline-info" >Edit Schedules Informations</a></div>
+    <div class="text-center mb-5 ">MY PHARMACY: <%= @pharmacien.pharmacy.name %> <a href="<%= edit_pharmacy_path(@pharmacien.pharmacy.id, where: "update") %>" class="ml-5 btn btn-outline-info" >Editer la Pharmacie</a><a href="<%= edit_schedule_path(@pharmacy.schedules.ids) %>" class="ml-5 btn btn-outline-info" >Editer les horaires</a></div>
   
     <table class="table">
       <thead class="" style="background-color: #78c9c5 !important;">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Product Name</th>
-          <th scope="col">Product Edit</th>
-          <th scope="col">Product Show</th>
-          <th scope="col">Product Destroy</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Editer</th>
+          <th scope="col">Voir</th>
+          <th scope="col">Effacer</th>
         </tr>
       </thead>
         <tbody>
             <% count = 1%>
             <div class="d-flex justify-content-between">
-                <a href="<%= new_product_path %>" class="btn btn-outline-success mb-2">Create New Product </a>
-                <div class="btn btn-outline-baclk mb-2"><%= @pharmacien.pharmacy.products.count %> Products</a>
+                <a href="<%= new_product_path %>" class="btn btn-outline-success mb-2">Créer un nouveau produit </a>
+                <div class="btn btn-outline-baclk mb-2"><%= @pharmacien.pharmacy.products.count %> Produits</a>
             </div>
-            <% @pharmacien.pharmacy.products.each do |product| %>
+            
+            <% @products.each do |product| %>
                 <tr>
                   <th scope="row"><%= count %> </th>
                   <td><%= product.name %></td>
@@ -32,7 +31,10 @@
         </tbody>
     </table>
 </div>
-<%= link_to 'Back', profile_path(current_user.id), class:"btn btn-outline-success ml-5 mt-5 text-center" %>
+<div class="ml-5">
+  <%= paginate @products %>
+</div>
+<%= link_to 'Retour', profile_path(current_user.id), class:"btn btn-outline-success ml-5 mt-5 text-center" %>
 
 
 <script>

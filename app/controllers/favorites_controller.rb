@@ -1,8 +1,12 @@
 class FavoritesController < ApplicationController
    before_action :authenticate_user!
     def create
-       favorite = current_user.favorites.create(pharmacy_id: params[:pharmacy_id])
-       redirect_to pharmacy_path(params[:pharmacy_id]), notice: "La pharmacy #{favorite.pharmacy.name} a été ajouté aux favoris"
+      if current_user.pharmacy.id == params[:pharmacy_id].to_i
+         redirect_to pharmacy_path(params[:pharmacy_id]), notice: "Vous ne pouvez pas ajouter votre pharmacie en favorites."
+      else 
+         favorite = current_user.favorites.create(pharmacy_id: params[:pharmacy_id])
+         redirect_to pharmacy_path(params[:pharmacy_id]), notice: "La pharmacy #{favorite.pharmacy.name} a été ajouté aux favoris"
+      end
    end
    def destroy
      favorite = current_user.favorites.find_by(id: params[:id]).destroy

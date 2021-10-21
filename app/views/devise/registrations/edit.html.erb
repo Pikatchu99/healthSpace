@@ -48,7 +48,7 @@
                                                             <%= f.select :city, [ "Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], class: "form-control" %>
                                                         </div>
                                                         <div class="form-group">
-                                                          <%= f.label :quartier %><br /><span style="font-size: 10px; color: red;">Make sure you enter the correct name of your neighborhood</span>
+                                                          <%= f.label :quartier %><br /><span style="font-size: 10px; color: red;">Assurez-vous d'entrer le bon nom de votre quartier.</span>
                                                           <%= f.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control" %>
                                                         </div>
                                                         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
