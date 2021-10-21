@@ -25,8 +25,12 @@ class Users::SessionsController < Devise::SessionsController
       flash[:notice] = "Welcome Back.You must create your Pharmacy."
       new_pharmacy_path
     else
+      flash[:notice] = "Welcome Back #{current_user.name}."
      pharmacies_path
     end
+  end
+  def after_sign_out_path_for(resource_or_scope)
+    new_user_session_path
   end
 
   # If you have extra params to permit, append them to the sanitizer.
