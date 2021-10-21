@@ -1,20 +1,26 @@
+
 <div class="container">
-  <div class="h2 text-center" style="margin-top: 100px;">Product Informations </div>
+  <div class="d-flex justify-content-around flex-column"  style="margin-top: 100px;">
+    <div class="h2 text-center">Product Informations </div>
+    <div style="margin: 0 auto 0 auto;">
+      <%= link_to "Demander à la pharmacie", { :controller => "products", :action => "asking", :pn => @product.name, :wsp => @product.pharmacy.whatsapp, :phn => @product.pharmacy.name }, :class => "btn btn-outline-success" %>
+    </div>
+  </div>
   <div class="row row-cols-1 row-cols-md-2" style="margin-top: 80px;">
     <div class="col mb-4">
       <div class="card">
-        <%= image_tag(@product.first_image_url, :alt => @product.name, class: "card-img-top") %>
-        <!-- <img src="https://user-images.githubusercontent.com/72025145/138038943-ba43c9b7-9b61-4762-a6d3-9d2c0b42510e.jpg" class="card-img-top" alt="Para"> -->
+        <!-- < %= image_tag(@product.first_image_url, :alt => @product.name, class: "card-img-top") %> -->
+        <img src="https://user-images.githubusercontent.com/72025145/138038943-ba43c9b7-9b61-4762-a6d3-9d2c0b42510e.jpg" class="card-img-top" alt="Para">
         <div class="card-body">
           <h5 class="card-title"><%= @product.name %></h5>
-          <p class="card-text my-5"><%= @product.description %></p>
+          <p class="card-text my-5"><%= @product.description %></p><br/>
         </div>
       </div>
     </div>
     <div class="col mb-4">
   <div class="card">
-    <%= image_tag(@product.second_image_url, :alt => @product.name, class: "card-img-top") %>
-    <!-- <img src="https://user-images.githubusercontent.com/72025145/138038943-ba43c9b7-9b61-4762-a6d3-9d2c0b42510e.jpg" class="card-img-top" alt="Para"> -->
+    <!-- < %= image_tag(@product.second_image_url, :alt => @product.name, class: "card-img-top") %> -->
+    <img src="https://user-images.githubusercontent.com/72025145/138038943-ba43c9b7-9b61-4762-a6d3-9d2c0b42510e.jpg" class="card-img-top" alt="Para">
     <div class="card-body">
     </div>
   </div>

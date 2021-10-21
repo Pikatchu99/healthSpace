@@ -13,6 +13,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'faker'
+gem 'phonelib'
+gem 'rails_admin', '~> 2.2', '>= 2.2.1'
+gem 'cancancan'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do

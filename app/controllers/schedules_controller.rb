@@ -27,7 +27,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to pharmacies_path, notice: "Open Hours was successfully created." }
+        format.html { redirect_to pharmacien_path(current_user.id), notice: "Open Hours was successfully created. Here is your Dashboard." }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new, status: :unprocessable_entity }

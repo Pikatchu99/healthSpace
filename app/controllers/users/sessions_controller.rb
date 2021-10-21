@@ -21,7 +21,12 @@ class Users::SessionsController < Devise::SessionsController
   protected
   
   def after_sign_in_path_for(resource_or_scope)
-    pharmacies_path
+    if current_user.user_role == "Pharmacien" && current_user.pharmacy.nil?
+      flash[:notice] = "Welcome Back.You must create your Pharmacy."
+      new_pharmacy_path
+    else
+     pharmacies_path
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.

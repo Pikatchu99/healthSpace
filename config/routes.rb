@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'us/about_us'
   get 'us/help_me'
   get 'dashboard_pharmacien/:id' => "dashboard_pharmacien#index", as: "pharmacien"
+  get "/search", to: "pharmacies#search", as: "search_pharmacies"
+  get "/psearch", to: "pharmacies#psearch", as: "search_products"
+  get "/asking", to: "products#asking", as: "asking"
   resources :schedules
   resources :products
   resources :pharmacies do 

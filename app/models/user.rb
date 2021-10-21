@@ -6,4 +6,15 @@ class User < ApplicationRecord
   has_one :pharmacy
   has_many :favorites, dependent: :destroy
   has_many :favorite_pharmacies, through: :favorites, source: :pharmacy
+
+  validates :user_role, presence: true, if: :validate_role?
+
+  def validate_role?
+    if self.user_role == "Patient" || self.user_role == "Pharmacien"
+      return false
+    else
+      return true
+    end
+  end
+
 end

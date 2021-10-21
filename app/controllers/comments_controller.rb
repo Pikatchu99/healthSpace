@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
         if @comment.save
           format.js { render :index }
         else
-          format.html { redirect_to pharmacy_path(@pharmacy), notice: 'Impossible de poster.' }
+          format.html { redirect_to pharmacy_path(@pharmacy), alert: 'Impossible de poster.' }
         end
       end
     end
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
           flash.now[:notice] = 'Votre commentaire a été modifié !'
           format.js { render :index }
         else
-          flash.now[:notice] = 'Impossible de modifier votre commentaire'
+          flash.now[:alert] = 'Impossible de modifier votre commentaire'
           format.js { render :edit_error }
         end
       end

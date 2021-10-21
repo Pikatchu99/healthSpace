@@ -5,11 +5,18 @@
                     <div class="col-lg-6">
                         <div class="about-text go-to">
                             <a style="border-color: #78c9c5"class="btn a-hover" href="<%= edit_user_registration_path %>">Edit Profile</a>
-                            <% if current_user.user_role =="Pharmacien" %> <a style="border-color: #78c9c5"class="btn a-hover" href="<%= pharmacien_path(current_user.id) %>">Manage My Pharmacy</a><% end %><h3 class="dark-color">About Me</h3>
+                            <% if current_user.user_role =="Pharmacien" %>
+                                <a style="border-color: #78c9c5"class="btn a-hover" href="<%= pharmacien_path(current_user.id) %>">Manage My Pharmacy</a>
+                            <% elsif current_user.user_role == "Admin" %>
+                                <a style="border-color: #78c9c5"class="btn a-hover" href="/admin">Dashboard Admin</a>
+                            <% end %>
+                            <h3 class="dark-color">About Me</h3>
                             <% if current_user.user_role == "Patient"%>
                                 <p>I'm person who find pharmacy</p>
-                            <% else %>
+                            <% elsif current_user.user_role == "Pharmacien"%>
                                 <p>I'm person who have an pharmacy</p>
+                            <% else %> 
+                                <p>Je suis administrateur.</p>
                             <% end %>
                             <div class="row about-list">
                                 <div class="col-md-6">
@@ -52,6 +59,8 @@
                                 <h6 class="count h2" data-to="500" data-speed="500">Patient</h6>
                                 <% elsif current_user.user_role == "Pharmacien" %>
                                 <h6 class="count h2" data-to="500" data-speed="500">Pharmacien</h6>
+                                <% else %>
+                                    <h6 class="count h2" data-to="500" data-speed="500">Administrateur</h6>
                                 <% end %>
                                 <p class="m-0px font-w-600">Status</p>
                             </div>
