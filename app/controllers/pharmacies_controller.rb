@@ -40,16 +40,19 @@ class PharmaciesController < ApplicationController
       @pharmacy = Pharmacy.find(params[:id])
       @comments = @pharmacy.comments
       @comment = @pharmacy.comments.build
+      @comment.user_id = current_user.id
     elsif params[:pr].present? && params[:pa].blank?
       @products = Product.where(pharmacy_id: params[:id]).find_product(params[:pr])
       @pharmacy = Pharmacy.find(params[:id])
       @comments = @pharmacy.comments
       @comment = @pharmacy.comments.build
+      @comment.user_id = current_user.id
     elsif params[:pr].blank? && params[:pa].present?
       @products = Product.where(pharmacy_id: params[:id]).find_availability(@etat)
       @pharmacy = Pharmacy.find(params[:id])
       @comments = @pharmacy.comments
       @comment = @pharmacy.comments.build
+      @comment.user_id = current_user.id
     end
     render :show
   end
@@ -59,6 +62,7 @@ class PharmaciesController < ApplicationController
     @products = Product.where(pharmacy_id: @pharmacy.id)
     @comments = @pharmacy.comments
     @comment = @pharmacy.comments.build
+    @comment.user_id = current_user.id
     @day = DateTime.now.strftime("%w").to_i
     if @day == 1
       @when = @pharmacy.schedules[0].lundi

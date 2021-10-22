@@ -1,3 +1,3 @@
-$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.pharmacy.comments, pharmacy: @comment.pharmacy }) %>");
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.pharmacy.comments, pharmacy: @comment.pharmacy, user: @comment.user_id }) %>");
 $("textarea").val('');
 $("#notice").html("<%= j flash[:notice] %>");
