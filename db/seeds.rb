@@ -42,7 +42,7 @@ cities.each do |ci|
         5.times do
             product = Product.create!(
                 pharmacy_id: pharmacy.id,
-                name: Faker::Movies::HarryPotter.character
+                name: Faker::Movies::HarryPotter.character,
                 description: Faker::Lorem.sentences,
                 available: Faker::Boolean.boolean,
                 first_image_temp: images.sample,
