@@ -1,55 +1,51 @@
 <div class="container" style="margin-top: 100px;">
-    <div class="text-center mb-5 ">MY PHARMACY: <%= @pharmacien.pharmacy.name %> <a href="<%= edit_pharmacy_path(@pharmacien.pharmacy.id, where: "update") %>" class="ml-5 btn btn-outline-info" >Editer la Pharmacie</a><a href="<%= edit_schedule_path(@pharmacy.schedules.ids) %>" class="ml-5 btn btn-outline-info" >Editer les horaires</a></div>
-  
-    <table class="table">
-      <thead class="" style="background-color: #78c9c5 !important;">
+  <div class="text-center mb-5 ">MY PHARMACY: <%= @pharmacien.pharmacy.name %> <a href="<%= edit_pharmacy_path(@pharmacien.pharmacy.id, where: "update") %>" class="ml-5 btn btn-outline-info" >Editer la Pharmacie</a><a href="<%= edit_schedule_path(@pharmacy.schedules.ids) %>" class="ml-5 btn btn-outline-info" >Editer les horaires</a></div>
+  <table class="table">
+    <thead class="" style="background-color: #78c9c5 !important;">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Editer</th>
+        <th scope="col">Voir</th>
+        <th scope="col">Effacer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% count = 1%>
+      <div class="d-flex justify-content-between">
+        <a href="<%= new_product_path %>" class="btn btn-outline-success mb-2">Créer un nouveau produit </a>
+        <div class="btn btn-outline-baclk mb-2"><%= @pharmacien.pharmacy.products.count %> Produits</a>
+      </div>
+      <% @products.each do |product| %>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Editer</th>
-          <th scope="col">Voir</th>
-          <th scope="col">Effacer</th>
+          <th scope="row"><%= count %> </th>
+          <td><%= product.name %></td>
+          <td> <a href="<%= product_path(product.id)%>" class="btn btn-outline-info">Show</a></td>
+          <td> <a href="<%= edit_product_path(product.id, where: "update") %>" class="btn btn-outline-warning">Edit</a></td>
+          <td> <a href="<%= product_path(product.id)%>"data-method="delete" data-confirm="Are you sure ?" class="btn btn-outline-danger">Destroy</a></td>
         </tr>
-      </thead>
-        <tbody>
-            <% count = 1%>
-            <div class="d-flex justify-content-between">
-                <a href="<%= new_product_path %>" class="btn btn-outline-success mb-2">Créer un nouveau produit </a>
-                <div class="btn btn-outline-baclk mb-2"><%= @pharmacien.pharmacy.products.count %> Produits</a>
-            </div>
-            
-            <% @products.each do |product| %>
-                <tr>
-                  <th scope="row"><%= count %> </th>
-                  <td><%= product.name %></td>
-                  <td> <a href="<%= product_path(product.id)%>" class="btn btn-outline-info">Show</a></td>
-                  <td> <a href="<%= edit_product_path(product.id, where: "update") %>" class="btn btn-outline-warning">Edit</a></td>
-                  <td> <a href="<%= product_path(product.id)%>"data-method="delete" data-confirm="Are you sure ?" class="btn btn-outline-danger">Destroy</a></td>
-                </tr>
-                <% count += 1%>
-            <% end %>
-        </tbody>
-    </table>
+        <% count += 1%>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 <div class="ml-5">
   <%= paginate @products %>
 </div>
 <%= link_to 'Retour', profile_path(current_user.id), class:"btn btn-outline-success ml-5 mt-5 text-center" %>
-
-
 <script>
-// function showNotification() {
-//    const notification = new Notification("New message incoming", {
-//       body: "Hi <%= @pharmacien.name%>. Welcome in your dashboard. Make enjoy."
-//    })
-// }
-
-//    console.log(Notification.permission);
-//    if (Notification.permission === "granted") {
-//       showNotification();
-//    } else if (Notification.permission !== "denied") {
-//       Notification.requestPermission().then(permission => {
-//          console.log(permission);
-//       });
-//    }
+  // function showNotification() {
+  //    const notification = new Notification("New message incoming", {
+  //       body: "Hi <%= @pharmacien.name%>. Welcome in your dashboard. Make enjoy."
+  //    })
+  // }
+  
+  //    console.log(Notification.permission);
+  //    if (Notification.permission === "granted") {
+  //       showNotification();
+  //    } else if (Notification.permission !== "denied") {
+  //       Notification.requestPermission().then(permission => {
+  //          console.log(permission);
+  //       });
+  //    }
 </script>

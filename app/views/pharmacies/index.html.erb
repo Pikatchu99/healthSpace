@@ -3,14 +3,13 @@
   <div class="container-fluid">
     <div class="d-flex justify-content-around">
       <%= form_with(url: search_pharmacies_path, method: :get, local: true) do |f| %>
-      <span class="fs-6"></span><%= f.text_field :pn, placeholder: "Nom" %>
-      <span class="fs-6"></span> <%= f.select :pc, ["Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], prompt: 'Ville' %>
-      <span class="fs-6"></span> <%= f.text_field :pq, placeholder: "Quartier" %>
+        <span class="fs-6"></span><%= f.text_field :pn, placeholder: "Nom" %>
+        <span class="fs-6"></span> <%= f.select :pc, ["Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], prompt: 'Ville' %>
+        <span class="fs-6"></span> <%= f.text_field :pq, placeholder: "Quartier" %>
         <%= f.submit 'Chercher' ,class:'btn btn-outline-success me-5'%>
       <% end %>
     </div>
   </div>
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
@@ -23,28 +22,28 @@
     </div>
   </div>
   <div class="container">
-  <div class="btn btn-outline-baclk mb-2 float-right"><%= @pharmacies.count %> Pharmacies trouvées</a></div>
-    <table class="table">
-      <thead style="background-color: #78c9c5 !important;">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Voir</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div class="btn btn-outline-baclk mb-2 float-right"><%= @pharmacies.count %> Pharmacies trouvées</a></div>
+  <table class="table">
+    <thead style="background-color: #78c9c5 !important;">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Voir</th>
+      </tr>
+    </thead>
+    <tbody>
       <% count = 1 %>
       <% @pharmacies.each do |pharmacy| %>
         <tr>
-        <th scope="row"><%= count %></th>
+          <th scope="row"><%= count %></th>
           <td><%= pharmacy.name %></td>
           <td><%= link_to 'Plus', pharmacy, class: "btn btn-outline-info" %></td>
         </tr>
         <% count += 1%>
       <% end %>
-      </tbody>
-    </table>
-  </div>
+    </tbody>
+  </table>
+</div>
 </section>
 <div class="ml-5">
   <%= paginate @pharmacies %>

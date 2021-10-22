@@ -18,6 +18,7 @@ gem 'phonelib'
 gem 'rails_admin', '~> 2.2', '>= 2.2.1'
 gem 'cancancan'
 gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
+gem 'mailgun-ruby', '~>1.2.5'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do

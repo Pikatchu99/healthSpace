@@ -1,116 +1,117 @@
 <section class="bg-account-pages vh-100" style="margin-top: 100px">
-<section class="section about-section gray-bg" id="about">
-            <div class="container">
-                <div class="row align-items-center flex-row-reverse">
-                    <div class="col-lg-6">
-                        <div class="about-text go-to">
-                            <a style="border-color: #78c9c5"class="btn a-hover" href="<%= edit_user_registration_path %>">Editer mon Profil</a>
-                            <% if current_user.user_role =="Pharmacien" %>
-                                <a style="border-color: #78c9c5"class="btn a-hover" href="<%= pharmacien_path(current_user.id) %>">Manager ma Pharmacie</a>
-                            <% elsif current_user.user_role == "Admin" %>
-                                <a style="border-color: #78c9c5"class="btn a-hover" href="/admin">Dashboard Admin</a>
-                            <% end %>
-                            <h3 class="dark-color">A propose de moi</h3>
-                            <% if current_user.user_role == "Patient"%>
-                                <p>Je recherche des services.</p>
-                            <% elsif current_user.user_role == "Pharmacien"%>
-                                <p>Je dispose d'une pharmacie</p>
-                            <% else %> 
-                                <p>Je suis administrateur.</p>
-                            <% end %>
-                            <div class="row about-list">
-                                <div class="col-md-6">
-                                    <div class="media">
-                                        <label>Nom</label>
-                                        <p><%= @user.name %></p>
-                                    </div>
-                                    <div class="media">
-                                        <label>E-mail</label>
-                                        <p><%= @user.email%></p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="media">
-                                        <label>Ville</label>
-                                        <p><%= @user.city %></p>
-                                    </div>
-                                    <div class="media">
-                                        <label>Quartier</label>
-                                        <p><%= @user.quartier %></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-avatar">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
-                        </div>
-                    </div>
+  <section class="section about-section gray-bg" id="about">
+    <div class="container">
+      <div class="row align-items-center flex-row-reverse">
+        <div class="col-lg-6">
+          <div class="about-text go-to">
+            <a style="border-color: #78c9c5"class="btn a-hover" href="<%= edit_user_registration_path %>">Editer mon Profil</a>
+            <% if current_user.user_role =="Pharmacien" %>
+              <a style="border-color: #78c9c5"class="btn a-hover" href="<%= pharmacien_path(current_user.id) %>">Manager ma Pharmacie</a>
+            <% elsif current_user.user_role == "Admin" %>
+              <a style="border-color: #78c9c5"class="btn a-hover" href="/admin">Dashboard Admin</a>
+            <% end %>
+            <h3 class="dark-color">A propose de moi</h3>
+            <% if current_user.user_role == "Patient"%>
+              <p>Je recherche des services.</p>
+            <% elsif current_user.user_role == "Pharmacien"%>
+              <p>Je dispose d'une pharmacie</p>
+            <% else %>
+              <p>Je suis administrateur.</p>
+            <% end %>
+            <div class="row about-list">
+              <div class="col-md-6">
+                <div class="media">
+                  <label>Nom</label>
+                  <p><%= @user.name %></p>
                 </div>
-                <div class="counter">
-                    <div class="row">
-                        <div class="col-6 col-lg-3">
-                            
-                        </div>
-                        <div class="col-6 col-lg-3">
-                        <div class="count-data text-center">
-                                <% if current_user.user_role == "Patient"%>
-                                <h6 class="count h2" data-to="500" data-speed="500">Patient</h6>
-                                <% elsif current_user.user_role == "Pharmacien" %>
-                                <h6 class="count h2" data-to="500" data-speed="500">Pharmacien</h6>
-                                <% else %>
-                                    <h6 class="count h2" data-to="500" data-speed="500">Administrateur</h6>
-                                <% end %>
-                                <p class="m-0px font-w-600">Status</p>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <div class="count-data text-center">
-                                <h6 class="count h2" data-to="850" data-speed="850"><%= @user.favorite_pharmacies.count %></h6>
-                                <p class="m-0px font-w-600">Favoris</p>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <div class="count-data text-center">
-                                <% if current_user.user_role == "Pharmacien"%>
-                                    <h6 class="count h2" data-to="850" data-speed="850"><%= @user.pharmacy.products.count%></h6>
-                                    <p class="m-0px font-w-600">Produits</p>
-                                <% end %>
-                            </div>
-                        </div>
-                    </div>
+                <div class="media">
+                  <label>E-mail</label>
+                  <p><%= @user.email%></p>
                 </div>
+              </div>
+              <div class="col-md-6">
+                <div class="media">
+                  <label>Ville</label>
+                  <p><%= @user.city %></p>
+                </div>
+                <div class="media">
+                  <label>Quartier</label>
+                  <p><%= @user.quartier %></p>
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-avatar">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="counter">
+        <div class="row">
+          <div class="col-6 col-lg-3">
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="count-data text-center">
+              <% if current_user.user_role == "Patient"%>
+                <h6 class="count h2" data-to="500" data-speed="500">Patient</h6>
+              <% elsif current_user.user_role == "Pharmacien" %>
+                <h6 class="count h2" data-to="500" data-speed="500">Pharmacien</h6>
+              <% else %>
+                <h6 class="count h2" data-to="500" data-speed="500">Administrateur</h6>
+              <% end %>
+              <p class="m-0px font-w-600">Status</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="count-data text-center">
+              <h6 class="count h2" data-to="850" data-speed="850"><%= @user.favorite_pharmacies.count %></h6>
+              <p class="m-0px font-w-600">Favoris</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="count-data text-center">
+              <% if current_user.user_role == "Pharmacien"%>
+                <h6 class="count h2" data-to="850" data-speed="850"><%= @user.pharmacy.products.count%></h6>
+                <p class="m-0px font-w-600">Produits</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
 <% if @user.favorite_pharmacies.count < 1 %>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4"></div>
-            <div class="col-lg-4 col-md-4"><div class="h3 text-center text-info">Vous n'avez aucun favoris.</div></div>
-            <div class="col-lg-4 col-md-4"></div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4"></div>
+      <div class="col-lg-4 col-md-4">
+        <div class="h3 text-center text-info">Vous n'avez aucun favoris.</div>
+      </div>
+      <div class="col-lg-4 col-md-4"></div>
     </div>
+  </div>
 <% else %>
-    <div class="container">
-        <div class="h2 text-center"> Tout vos favoris </div>
-        <div class="row mt-5">
-            <% @user.favorite_pharmacies.each do |favor| %>
-                <div class="col-md-3 col-sm-6 item">
-                    <div class="card item-card card-block">
-                        <img class="-img-" src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
-                        <h5 class="item-card-title mt-3 ml-2 mb-3">
-                            <%= favor.name%>
-                        </h5>
-                        <p class="card-text ml-2">
-                            <%= favor.contact%>
-                        </p>
-                        <a class="a-hover btn btn-outline-danger" data-confirm="Delete favorites ?" data-method="delete" href="<%= favorite_path(id: current_user.favorites.find_by(pharmacy_id: favor.id).id, where: "2") %>">Supprimer des favoris</a>
-                        <a class="btn a-hover btn-outline-success mt-2" href="<%= pharmacy_path(favor.id) %>">Voir la pharmacie</a>
-                    </div>
-                </div>
-            <% end %>
+  <div class="container">
+    <div class="h2 text-center"> Tout vos favoris </div>
+    <div class="row mt-5">
+      <% @user.favorite_pharmacies.each do |favor| %>
+        <div class="col-md-3 col-sm-6 item">
+          <div class="card item-card card-block">
+            <img class="-img-" src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+            <h5 class="item-card-title mt-3 ml-2 mb-3">
+              <%= favor.name%>
+            </h5>
+            <p class="card-text ml-2">
+              <%= favor.contact%>
+            </p>
+            <a class="a-hover btn btn-outline-danger" data-confirm="Delete favorites ?" data-method="delete" href="<%= favorite_path(id: current_user.favorites.find_by(pharmacy_id: favor.id).id, where: "2") %>">Supprimer des favoris</a>
+            <a class="btn a-hover btn-outline-success mt-2" href="<%= pharmacy_path(favor.id) %>">Voir la pharmacie</a>
+          </div>
         </div>
+      <% end %>
     </div>
+  </div>
 <% end %>

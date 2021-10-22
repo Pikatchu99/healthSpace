@@ -10,11 +10,10 @@ class User < ApplicationRecord
   validates :user_role, presence: true, if: :validate_role?
 
   def validate_role?
-    if self.user_role == "Patient" || self.user_role == "Pharmacien"
-      return false
+    if user_role == 'Patient' || user_role == 'Pharmacien'
+      false
     else
-      return true
+      true
     end
   end
-
 end

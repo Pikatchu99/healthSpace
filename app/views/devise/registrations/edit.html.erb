@@ -1,100 +1,95 @@
 <section class="bg-account-pages vh-100">
-    <div class="display-table">
-        <div class="display-table-cell">
-            <div class="container">
-                <div class="row no-gutters align-items-center">
-                    <div class="col-lg-12">
-                        <div class="login-box">
-                            <div class="row align-items-center no-gutters">
-                                <div class="col-lg-6">
-                                    <div class="bg-light">
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-10">
-                                                <div
-                                                    class="home-img login-img text-center d-none d-lg-inline-block">
-                                                    <div class="animation-2"></div>
-                                                    <div class="animation-3"></div>
-                                                    <img src="https://user-images.githubusercontent.com/72025145/137671728-2ef61f13-2af0-4f7b-90e5-38b8af6f05f0.png" class="img-fluid" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-11">
-                                            <div class="p-4">
-                                                <div class="text-center mt-3">
-                                                    <img src="https://user-images.githubusercontent.com/72025145/137684945-16f6e824-e651-47a5-bded-13e990702f77.png" alt=""
-                                                            height="44">
-                                                    <p class="text-muted mt-3">Sign up for a new Account
-                                                    </p>
-                                                </div>
-                                                <div class="p-3 custom-form">
-                                                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-                                                      <div> <%= render "devise/shared/error_messages", resource: resource %> </div>
-                                                        <div class="form-group">
-                                                          <%= f.label :name %><br />
-                                                          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", id: "firstname" %>
-                                                        </div>
-        
-                                                        <div class="form-group">
-                                                            <%= f.label :email %><br />
-                                                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "email" %>
-                                                        </div>
-        
-                                                        <div class="form-group">
-                                                            <%= f.label :city %><br />
-                                                            <%= f.select :city, [ "Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], class: "form-control" %>
-                                                        </div>
-                                                        <div class="form-group">
-                                                          <%= f.label :quartier %><br /><span style="font-size: 10px; color: red;">Assurez-vous d'entrer le bon nom de votre quartier.</span>
-                                                          <%= f.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control" %>
-                                                        </div>
-                                                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                                                          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-                                                        <% end %>
-                                                        <div class="form-group">
-                                                              <label >Who are you ?</label> <span class="text-info" style="font-size: 9px"><strong>Patient: I need find a pharmacy***Pharmcien: I have an Pharmacy</strong></span>
-                                                              <%= f.select :user_role, [ "Patient", "Pharmacien"], class: "form-control" %>
-                                                          </div>
-                                                        <div class="form-group">
-                                                          <%= f.label :password %><i>(leave blank if you don't want to change it)</i><br />
-                                                          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
-                                                          <% if @minimum_password_length %>
-                                                            <br />
-                                                            <em><%= @minimum_password_length %> characters minimum</em>
-                                                          <% end %>
-                                                        </div>
-                                                        
-                                                        <div class="form-group">
-                                                          <%= f.label :password_confirmation %><br />
-                                                          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "userpasswordconfirmation" %>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                                                          <%= f.password_field :current_password, autocomplete: "current-password" %>
-                                                        </div>
-
-                                                        <div class="actions mt-3">
-                                                          <%= f.submit "Update", class: "btn btn-primary btn-block" %>
-                                                        </div>
-                                                        <% end %>
-                                                        <%= link_to "Back", profile_path(current_user.id), class:"btn btn-outline-warning" %>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+  <div class="display-table">
+    <div class="display-table-cell">
+      <div class="container">
+        <div class="row no-gutters align-items-center">
+          <div class="col-lg-12">
+            <div class="login-box">
+              <div class="row align-items-center no-gutters">
+                <div class="col-lg-6">
+                  <div class="bg-light">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-10">
+                        <div class="home-img login-img text-center d-none d-lg-inline-block">
+                          <div class="animation-2"></div>
+                          <div class="animation-3"></div>
+                          <img src="https://user-images.githubusercontent.com/72025145/137671728-2ef61f13-2af0-4f7b-90e5-38b8af6f05f0.png" class="img-fluid" alt="">
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-                <!-- end col -->
+                <div class="col-lg-6">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-11">
+                      <div class="p-4">
+                        <div class="text-center mt-3">
+                          <img src="https://user-images.githubusercontent.com/72025145/137684945-16f6e824-e651-47a5-bded-13e990702f77.png" alt=""
+                                                            height="44">
+                          <p class="text-muted mt-3">Sign up for a new Account
+                          </p>
+                        </div>
+                        <div class="p-3 custom-form">
+                          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                            <div> <%= render "devise/shared/error_messages", resource: resource %> </div>
+                            <div class="form-group">
+                              <%= f.label :name %><br />
+                              <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", id: "firstname" %>
+                            </div>
+                            <div class="form-group">
+                              <%= f.label :email %><br />
+                              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "email" %>
+                            </div>
+                            <div class="form-group">
+                              <%= f.label :city %><br />
+                              <%= f.select :city, [ "Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], class: "form-control" %>
+                            </div>
+                            <div class="form-group">
+                              <%= f.label :quartier %><br />
+                              <span style="font-size: 10px; color: red;">Assurez-vous d'entrer le bon nom de votre quartier.</span>
+                              <%= f.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control" %>
+                            </div>
+                            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                            <% end %>
+                            <div class="form-group">
+                              <label >Who are you ?</label> <span class="text-info" style="font-size: 9px"><strong>Patient: I need find a pharmacy***Pharmcien: I have an Pharmacy</strong></span>
+                              <%= f.select :user_role, [ "Patient", "Pharmacien"], class: "form-control" %>
+                            </div>
+                            <div class="form-group">
+                              <%= f.label :password %><i>(leave blank if you don't want to change it)</i><br />
+                              <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+                              <% if @minimum_password_length %>
+                                <br />
+                                <em><%= @minimum_password_length %> characters minimum</em>
+                              <% end %>
+                            </div>
+                            <div class="form-group">
+                              <%= f.label :password_confirmation %><br />
+                              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "userpasswordconfirmation" %>
+                            </div>
+                            <div class="form-group">
+                              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                              <%= f.password_field :current_password, autocomplete: "current-password" %>
+                            </div>
+                            <div class="actions mt-3">
+                              <%= f.submit "Update", class: "btn btn-primary btn-block" %>
+                            </div>
+                          <% end %>
+                          <%= link_to "Back", profile_path(current_user.id), class:"btn btn-outline-warning" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- end row -->
+          </div>
         </div>
+        <!-- end col -->
+      </div>
+      <!-- end row -->
     </div>
+  </div>
 </section>
-  <!-- end account-pages  -->
+<!-- end account-pages  -->

@@ -1,5 +1,4 @@
 <h1>Schedules</h1>
-
 <table>
   <thead>
     <tr>
@@ -13,7 +12,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
@@ -31,7 +29,5 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Schedule', new_schedule_path %>
