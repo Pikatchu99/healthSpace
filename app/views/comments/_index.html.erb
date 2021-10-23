@@ -9,7 +9,7 @@
               <div class="d-flex justify-content-between">
                 <div class="col-lg-6 col-md-6">
                   <% who = User.find(comment.user_id) %>
-                  Par <%= who.name %>
+                  <span class="text-info" ><%= who.name %></span>
                   <p><%= comment.content %></p>
                 </div>
                 <div class="col-lg-6 col-md-6 d-flex">
