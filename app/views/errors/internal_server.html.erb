@@ -1,12 +1,6 @@
 <style>
   @import url("https://fonts.googleapis.com/css?family=Fira+Code&display=swap");
-  * {
-      margin: 0;
-      padding: 0;
-      font-family: "Fira Code", monospace;
-  }
-  
-  body {
+  .bod {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -15,52 +9,54 @@
       background-color: #ecf0f1;
   }
   
-  .container {
+  .co {
       text-align: center;
       margin: auto;
       padding: 4em;
   }
   
-  .container img {
+  .co img {
       width: 256px;
       height: 225px;
   }
   
-  .container h1 {
+  .co h1 {
       margin-top: 1rem;
+      font-family: "Fira Code", monospace;
       font-size: 35px;
       text-align: center;
   }
   
-  .container h1 span {
+  .co h1 span {
       font-size: 60px;
   }
   
-  .container p {
+  .co p {
       margin-top: 1rem;
   }
   
-  .container p.info {
+  .co p.info {
       margin-top: 4em;
       font-size: 12px;
   }
   
-  .container p.info a {
+  .co p.info a {
       text-decoration: none;
       color: #5454ce;
   }
 </style>
 <% @title = "HealthSpace - Erreur 500" %>
-<div class="container">
-  <img src="https://user-images.githubusercontent.com/72025145/138546249-ced23581-ef9a-4c87-8d77-bbfd18eda9ab.png" />
-  <h1>
-    <span>500</span> <br />
-    Internal server error
-  </h1>
-  <p>We are currently trying to fix the problem.</p>
-  <p class="info">
-    Illustration taken from
-    <a href="https://www.kapwing.com/404-illustrations" target="_blank">kapwing.com</a
-      >
-  </p>
+<div class="bod">
+  <div class="co">
+    <img src="https://user-images.githubusercontent.com/72025145/138546249-ced23581-ef9a-4c87-8d77-bbfd18eda9ab.png" />
+    <h1>
+      <span>500</span> <br />
+      Internal server error
+    </h1>
+    <p>We are currently trying to fix the problem.</p>
+    <p class="info">
+      Owner
+      <a href="https://modeste.agbangla.me" target="_blank">modeste.agbangla.me</a>
+    </p>
+  </div>
 </div>

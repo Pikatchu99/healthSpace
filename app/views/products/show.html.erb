@@ -3,10 +3,10 @@
   <div class="d-flex justify-content-around flex-column"  style="margin-top: 100px;">
     <div class="h2 text-center">Product Informations </div>
     <div style="margin: 0 auto 0 auto;">
-      <% if @product.pharmacy.id != current_user.pharmacy.id %>
-        <%= link_to "Demander à la pharmacie", { :controller => "products", :action => "asking", :pn => @product.name, :wsp => @product.pharmacy.whatsapp, :phn => @product.pharmacy.name }, :class => "btn btn-outline-success" %>
-      <% else %>
+      <% if current_user.user_role == "Pharmacien" && @product.pharmacy.id == current_user.pharmacy.id %>
         C'est un de vos produits.
+      <% else %>
+        <%= link_to "Demander à la pharmacie", { :controller => "products", :action => "asking", :pn => @product.name, :wsp => @product.pharmacy.whatsapp, :phn => @product.pharmacy.name }, :class => "btn btn-outline-success" %>
       <% end %>
     </div>
   </div>
