@@ -51,3 +51,12 @@ cities.each do |ci|
         end
     end
 end
+User.create!(
+    name: "AGBANGLA Modeste",
+    email: "modeste@gmail.com",
+    city: "Cotonou",
+    quartier: "Sainte Rita",
+    user_role: "Admin",
+    password: "......",
+    password_confirmation: "......"
+)
