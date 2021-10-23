@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
    before_action :authenticate_user!
     def create
-      if current_user.pharmacy.id == params[:pharmacy_id].to_i
+      if current_user.user_role == "Pharmacien" && current_user.pharmacy.id == params[:pharmacy_id].to_i
          redirect_to pharmacy_path(params[:pharmacy_id]), notice: "Vous ne pouvez pas ajouter votre pharmacie en favorites."
       else 
          favorite = current_user.favorites.create(pharmacy_id: params[:pharmacy_id])
