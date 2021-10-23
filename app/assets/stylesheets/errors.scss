@@ -1,0 +1,38 @@
+// Place all the styles related to the errors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.page_404 {
+    padding: 40px 0;
+    background: #fff;
+    font-family: 'Arvo', serif;
+}
+
+.page_404 img {
+    width: 100%;
+}
+
+.four_zero_four_bg {
+    background-image: url(https://i.pinimg.com/originals/a8/12/1a/a8121abee959e18cbad25ad4046f76d8.gif);
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.four_zero_four_bg h1 {
+    font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+    font-size: 80px;
+}
+
+.link_404 {
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.contant_box_404 {
+    margin-top: -50px;
+}

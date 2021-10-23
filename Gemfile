@@ -19,10 +19,18 @@ gem 'rails_admin', '~> 2.2', '>= 2.2.1'
 gem 'cancancan'
 gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
 gem 'mailgun-ruby', '~>1.2.5'
+gem 'faker'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
+  gem 'spring-commands-rspec'
+  gem 'launchy'
+  gem 'rexml'
+  gem 'devise-specs'
+  gem 'devise'
 end
 
 group :development do
@@ -30,11 +38,12 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'devise-specs'
+  gem 'devise'
 end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 

@@ -1,4 +1,4 @@
-  
+<% @title = "HealthSpace - Inscription" %> 
 <div class="account-home-btn d-none d-sm-block">
 </div>
 <section class="bg-account-pages vh-100">
@@ -37,20 +37,20 @@
                             <%= render "devise/shared/error_messages", resource: resource %>
                             <div class="form-group">
                               <%= f.label :name %><br />
-                              <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", id: "firstname" %>
+                              <%= f.text_field :name, autocomplete: "name", class: "form-control", id: "firstname" %>
                             </div>
                             <div class="form-group">
                               <%= f.label :email %><br />
-                              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "email" %>
+                              <%= f.email_field :email, autocomplete: "email", class: "form-control", id: "email" %>
                             </div>
                             <div class="form-group">
                               <label>Ville</label><br />
-                              <%= f.select :city, [ "Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], class: "form-control" %>
+                              <%= f.select :city, ["Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], class: "form-control", prompt: 'Ville' %>
                             </div>
                             <div class="form-group">
                               <label>Quartier</label><br />
                               <span style="font-size: 10px; color: red;">Assurez-vous d'entrer le bon nom de votre quartier.</span>
-                              <%= f.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control" %>
+                              <%= f.text_field :quartier, autocomplete: "quartier", class: "form-control" %>
                             </div>
                             <div class="form-group">
                               <label >Qui êtes vous ?</label> <br/>
@@ -70,7 +70,7 @@
                               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "userpasswordconfirmation" %>
                             </div>
                             <div class="actions mt-3">
-                              <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
+                              <%= f.submit "S'inscrire", class: "btn btn-primary btn-block" %>
                             </div>
                             <div class="mt-4 mb-0 text-center">
                               <p class="mb-0">J'ai deja un compte.<a href="<%= new_user_session_path %>" class="text-success">Se connecter</a></p>

@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_pharmacies, through: :favorites, source: :pharmacy
 
-  validates :user_role, presence: true, if: :validate_role?
+  validates :user_role, presence: {message: " doit être définie.!", }, if: :validate_role?
+  validates :quartier, presence: {message: " doit être définie.!", }
+  validates :city, presence: {message: " doit être définie.!", }
 
   def validate_role?
     if user_role == 'Patient' || user_role == 'Pharmacien'

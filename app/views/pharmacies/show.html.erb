@@ -85,12 +85,12 @@
     background: #78c9c5;
   }
 </style>
+<% @title = "Détails Pharmacies" %>
 <div class="h2 text-center" style="margin-top: 100px;">Chercher un Produit</div>
 <div class="container-fluid">
   <div class="d-flex justify-content-around">
     <%= form_with(url: search_products_path, method: :get, local: true) do |f| %>
       <span class="fs-6"></span> <%= f.text_field :pr, placeholder: "Nom du produit" %>
-      <span class="fs-6 ml-5">Produit disponible ? </span> <%= f.check_box :pa %>
       <span class="fs-6 mr-5"></span> <%= f.hidden_field :id , value: @pharmacy.id %>
       <%= f.submit 'Chercher' ,class:'btn btn-outline-success me-5'%>
     <% end %>
@@ -101,7 +101,7 @@
   <% if current_user.favorites.find_by(pharmacy_id: @pharmacy.id).present? %>
     <div class="ml-5"><a class="btn btn-outline-danger" data-confirm="Delete favorites ?" data-method="delete" href="<%= favorite_path(id: current_user.favorites.find_by(pharmacy_id: @pharmacy.id).id, pharmacy_id: @pharmacy.id) %>"> Delete an Favorite</a></div>
 <% else %>
-    <div class="ml-5"><a class="btn btn-outline-success a-hover" data-confirm="Sur to add an favorites ?" data-method="post" href="<%= favorites_path(pharmacy_id: @pharmacy.id) %>"> Ajouter en favoris</a></div>
+    <div class="ml-5"><a class="btn btn-outline-success a-hover" data-method="post" href="<%= favorites_path(pharmacy_id: @pharmacy.id) %>"> Ajouter en favoris</a></div>
 <% end %>
  </div>
 <div class="container">
@@ -166,7 +166,7 @@
     <div class="h2 text-center">Tous les produits de cette pharmacie </div>
     <div class="row mt-5">
       <% @products.each do |product|%>
-        <div class="col-md-3 col-sm-6 item">
+        <div class="col-md-3 col-sm-6 item mb-5">
           <div class="card item-card card-block">
             <!-- <img class="-img-" src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset"> -->
             <% if product.first_image_url %>

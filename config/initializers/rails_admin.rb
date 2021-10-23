@@ -9,10 +9,12 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
 
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user.user_role === "Admin"
+    if current_user.user_role != "Admin"
+      redirect_to main_app.root_path, flash: { alert: " 🚨 Accès reservée uniquement aux administrateurs. 🚨" }
+    end
   end
   ## == CancanCan ==
-  # config.authorize_with :cancancan
+  # config.authorize_with :cancancan  
 
   ## == Pundit ==
   # config.authorize_with :pundit

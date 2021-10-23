@@ -18,8 +18,8 @@ class ProductsController < ApplicationController
   end
 
   def asking
-    link = "https://wa.me/229#{params[:wsp]}?text=Bonjour,Je%20m'apelle%20#{current_user.name.gsub(/\s+/, "")}%20et%20je%20suis%20un%20utilisateur%20de%20la%20plateforme%20HealthSpace.%20J'aimerai%20savoir%20si%20le%20produit%20du%20nom%20#{params[:pn]}%20est%20disponible%20dans%20votre%20pharmacie."
-    redirect_to link
+    redirect_to "https://wa.me/229#{params[:wsp]}?text=Bonjour,Je%20m'apelle%20#{current_user.name.gsub(/\s+/, "")}%20et%20je%20suis%20un%20utilisateur%20de%20la%20plateforme%20HealthSpace.%20J'aimerai%20savoir%20si%20le%20produit%20du%20nom%20#{params[:pn]}%20est%20disponible%20dans%20votre%20pharmacie."
+    # redirect_to link
   end
   # GET /products/new
   def new

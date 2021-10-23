@@ -6,6 +6,5 @@ class Schedule < ApplicationRecord
     validates :vendredi, presence: {message: " doit être définie.!", }
     validates :samedi, presence: {message: " doit être définie.!", }
     validates :dimanche, presence: {message: " doit être définie.!", }
-    
     belongs_to :pharmacy
 end

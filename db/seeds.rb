@@ -39,7 +39,7 @@ cities.each do |ci|
             samedi: weeks.sample,
             dimanche: weeks.sample
         )
-        5.times do
+        10.times do
             product = Product.create!(
                 pharmacy_id: pharmacy.id,
                 name: Faker::Movies::HarryPotter.character,

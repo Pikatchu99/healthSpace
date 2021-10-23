@@ -56,6 +56,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     if resource.user_role == "Pharmacien"
+      flash[:alert] = "Veuillez allez au bout du processus au risque d'être retrogradé à un utilisateur simple de la plateforme."
       new_pharmacy_path
     else
       pharmacies_path

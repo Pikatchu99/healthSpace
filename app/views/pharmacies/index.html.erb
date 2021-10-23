@@ -1,3 +1,4 @@
+<% @title = "Pharmacies" %>
 <section class="" style="margin-top: 100px">
   <div class="h2 text-center">Chercher une Pharmacie</div>
   <div class="container-fluid">
@@ -37,7 +38,7 @@
         <tr>
           <th scope="row"><%= count %></th>
           <td><%= pharmacy.name %></td>
-          <td><%= link_to 'Plus', pharmacy, class: "btn btn-outline-info" %></td>
+          <td class="product_row"><%= link_to 'Plus', pharmacy, class: "btn btn-outline-info" %></td>
         </tr>
         <% count += 1%>
       <% end %>

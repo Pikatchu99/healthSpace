@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create, :destroy]
   root "homepage#index"
   get 'users/:id' => 'users#show', as: "profile"
+  get '/404', to: 'errors#not_found'
+  get '/422', to: 'errors#unprocessable'
+  get '/500', to: 'errors#internal_server'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
