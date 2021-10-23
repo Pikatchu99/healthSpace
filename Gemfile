@@ -20,6 +20,7 @@ gem 'cancancan'
 gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
 gem 'mailgun-ruby', '~>1.2.5'
 gem 'faker'
+gem 'dotenv-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do

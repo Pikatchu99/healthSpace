@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="row row-cols-1 row-cols-md-2" style="margin-top: 80px;">
-    <div class="col mb-4">
+    <div class="col-12 mb-4">
       <div class="card">
         <% if @product.first_image_url %>
           <%= image_tag(@product.first_image_url, :alt => @product.name, class: "card-img-top") %>
@@ -20,7 +20,7 @@
         <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= @product.name %></h5>
-          <p class="card-text mb-5"><%= @product.description %></p>
+          <p><%= @product.description %></p>
         </div>
       </div>
     </div>
