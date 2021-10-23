@@ -1,4 +1,4 @@
- <% @title = "A propose de nous" %>
+<% @title = "A propose de nous" %>
 <div class="container-fluid" style="margin-top: 100px;">
   <div class="row d-sm-flex align-items-center justify-content-between">
     <div class="col-md-6 order-2 order-sm-1 p-3 p-sm-5">
@@ -7,12 +7,12 @@
         <p class="text-secondary" style="line-height: 2; font-size: 20px;">Nous sommes une équipe de développeurs qui travaillent jour après jour pour aider la population béninoise dans leurs besoins quotidiens.</p>
         <a href="<%if !current_user %>/<% else %> <%= pharmacies_path %> <% end %>" style="background-color: #68CEC7; width: 240px;" class="btn px-4 py-3 text-white d-flex align-items-center justify-content-between">
           <svg width="25px" fill="currentColor" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          viewBox="0 0 191.667 191.667" style="enable-background:new 0 0 191.667 191.667;" xml:space="preserve">
+        viewBox="0 0 191.667 191.667" style="enable-background:new 0 0 191.667 191.667;" xml:space="preserve">
             <path d="M95.833,0C42.991,0,0,42.99,0,95.833s42.991,95.834,95.833,95.834s95.833-42.991,95.833-95.834S148.676,0,95.833,0z
-            M150.862,79.646l-60.207,60.207c-2.56,2.56-5.963,3.969-9.583,3.969c-3.62,0-7.023-1.409-9.583-3.969l-30.685-30.685
-            c-2.56-2.56-3.97-5.963-3.97-9.583c0-3.621,1.41-7.024,3.97-9.584c2.559-2.56,5.962-3.97,9.583-3.97c3.62,0,7.024,1.41,9.583,3.971
-            l21.101,21.1l50.623-50.623c2.56-2.56,5.963-3.969,9.583-3.969c3.62,0,7.023,1.409,9.583,3.969
-            C156.146,65.765,156.146,74.362,150.862,79.646z"/>
+          M150.862,79.646l-60.207,60.207c-2.56,2.56-5.963,3.969-9.583,3.969c-3.62,0-7.023-1.409-9.583-3.969l-30.685-30.685
+          c-2.56-2.56-3.97-5.963-3.97-9.583c0-3.621,1.41-7.024,3.97-9.584c2.559-2.56,5.962-3.97,9.583-3.97c3.62,0,7.024,1.41,9.583,3.971
+          l21.101,21.1l50.623-50.623c2.56-2.56,5.963-3.969,9.583-3.969c3.62,0,7.023,1.409,9.583,3.969
+          C156.146,65.765,156.146,74.362,150.862,79.646z"/>
             <g>
             </svg>
             <span>Return Home</span>
@@ -22,230 +22,61 @@
       <img src="https://user-images.githubusercontent.com/72025145/137671721-370f9c30-c0df-41a2-8b92-40839549f6e6.png" class="img-fluid" alt="">
     </div>
   </div>
-  <style>
-    * {
-        margin: 0;
-        padding: 0;
-        font-family: "Open Sans", sans-serif;
-        box-sizing: border-box;
-    }
-    .about-section {
-        background: url(https://fadzrinmadu.github.io/hosted-assets/responsive-about-us-section-using-html/pic.jpg) no-repeat left;
-        background-size: 55%;
-        background-color: #fdfdfd;
-        overflow: hidden;
-        padding: 100px 0;
-    }
-    
-    .inner-container {
-        width: 55%;
-        float: right;
-        background-color: #fdfdfd;
-        padding: 150px;
-    }
-    
-    .inner-container h1 {
-        margin-bottom: 30px;
-        font-size: 30px;
-        font-weight: 900;
-    }
-    
-    .text {
-        font-size: 13px;
-        color: #545454;
-        line-height: 30px;
-        text-align: justify;
-        margin-bottom: 40px;
-    }
-    
-    .skills {
-        display: flex;
-        justify-content: space-between;
-        font-weight: 700;
-        font-size: 13px;
-    }
-    
-    @media screen and (max-width:1200px) {
-        .inner-container {
-            padding: 80px;
-        }
-    }
-    
-    @media screen and (max-width:1000px) {
-        .about-section {
-            background-size: 100%;
-            padding: 100px 40px;
-        }
-        .inner-container {
-            width: 100%;
-        }
-    }
-    
-    @media screen and (max-width:600px) {
-        .about-section {
-            padding: 0;
-        }
-        .inner-container {
-            padding: 60px;
-        }
-    }
-    
-    .main-section {
-        float: left;
-        width: 100%;
-        display: block;
-        background: #7a91b4;
-        height: 100vh;
-    }
-    
-    .container {
-        float: left;
-        width: 80%;
-        margin: 2rem 10%;
-    }
-    
-    .fullwidth-container {
-        display: block;
-        width: 80%;
-        margin: 2rem 10%
-    }
-    
-    #faqs {}
-    
-    .line-heading {
-        font-family: sans-serif;
-        color: #60c0ba;
-        font-weight: 600;
-        line-height: 1.1;
-        display: flex;
-        align-items: center;
-        width: 90%;
-        margin: 10px 0 0px 10%;
-        white-space: nowrap;
-        font-size: 26px;
-        text-shadow: 1px 1px 1px;
-    }
-    
-    .line-heading:after {
-        content: "";
-        display: block;
-        position: relative;
-        width: 300px;
-        height: 1px;
-        margin: 0 0 0 20px;
-        background: #06c9bc;
-        text-shadow: none;
-        transition: all .6s ease-in-out 0s
-    }
-    
-    .line-heading:hover:after {
-        width: 180px;
-        background: #00C58E
-    }
-    
-    h3.large-heading {
-        font-family: sans-serif;
-        margin: 0 0 0 10%;
-        font-size: 52px;
-        line-height: 1.1;
-        letter-spacing: -.045em;
-        color: #fff;
-        text-shadow: 1px 1px 1px;
-    }
-    
-    #faqSection div {
-        float: left;
-        display: inline-block;
-        width: 46%;
-        margin: 0 2%;
-        overflow: hidden;
-    }
-    
-    #faqSection .collapsible {
-        background-color: #fff;
-        border: 1px solid hsla(0, 0%, 51.4%, .16);
-        border-radius: 7px;
-        box-shadow: 0 10px 30px -15px;
-        transition: box-shadow .2s ease 0s;
-        color: #60c0ba;
-        margin: 0 0 8px;
-        width: 100%;
-        padding: 12px;
-        font-family: sans-serif;
-        font-size: 15px;
-        text-align: left;
-    }
-    
-    #faqSection .collapsible:hover {
-        box-shadow: 0 10px 60px -15px;
-    }
-    
-    #faqSection .active,
-    #faqSection .collapsible:hover {}
-    
-    #faqSection .collapsible:after {
-        content: "\002B";
-        font-weight: bold;
-        float: right;
-        margin-left: 5px
-    }
-    
-    #faqSection .active:after {
-        content: "\2212"
-    }
-    
-    #faqSection .faq-content {
-        overflow: hidden;
-        width: calc(100% - 8%);
-        padding: 5px 2%;
-        transition: all .25s ease-in-out 0s;
-        background: #60c0ba;
-        border: 1px solid hsla(0, 0%, 51.4%, .16);
-        border-radius: 7px;
-        max-height: 0px;
-        visibility: hidden;
-    }
-    
-    #faqSection .faq-content p {
-        font-family: sans-serif;
-        color: #fff;
-        line-height: 140%;
-        font-size: 14px;
-        margin: 0 0 12px;
-        text-shadow: 1px 1px 0 #2480;
-        font-weight: 100;
-    }
-    
-    #faqSection .faq-content a {
-        color: #00C58E;
-        font-weight: 600;
-        letter-spacing: .05rem;
-    }
-    
-    #faqSection .faq-content ul {
-        border-left: 2px solid #00C58E
-    }
-    
-    #faqSection .faq-content li {
-        color: #bad2e2;
-        font-size: .85rem;
-        line-height: 160%;
-        font-weight: 200;
-        margin: 8px 0 8px 2%;
-        list-style: none;
-        width: 90%;
-        font-family: sans-serif;
-        text-shadow: 1px 1px;
-    }
-    
-    .myFooter p {
-        color: #fff;
-        font-family: sans-serif;
-        text-shadow: 1px 1px 0;
-    }
-    
-    .myFooter a {
-        color: #00C58E;
-        text-decoration: none
-    }
-  </style>
+  <section class="section bg-light bg-footer pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 text-md-center">
+          <div class="footer-info mt-4">
+            <img src="https://user-images.githubusercontent.com/72025145/137684945-16f6e824-e651-47a5-bded-13e990702f77.png" alt="" height="44">
+            <p class="text-muted mt-4 mb-2">Faites-nous confiance et restez en bonne santé.</p>
+            <div class="team-social mt-4 pt-2">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item">
+                  <a href="#" class="text-reset"><i class="mdi mdi-facebook"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="text-reset"><i class="mdi mdi-twitter"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="text-reset"><i class="mdi mdi-google"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-md-center">
+          <div class="row  pl-0 md-lg-5">
+            <div class="col-lg-5">
+              <div class="mt-4">
+                <h5 class="f-20">Useful Links</h5>
+                <ul class="list-unstyled footer-link mt-3">
+                  <li><a href="/" class="a-hover">Home</a></li>
+                  <li><a href="<%= us_about_us_path %>" class="a-hover">À Propos De Nous</a></li>
+                  <li><a href="<%= us_help_me_path %>" class="a-hover">Aidez Moi</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="mt-4">
+                <h5 class="f-20">Policits Links</h5>
+                <ul class="list-unstyled footer-link mt-3">
+                  <li><a href="#" class="a-hover">Conditions d'utilisation</a></li>
+                  <li><a href="#" class="a-hover">Politique de confidentialité</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1">
+        </div>
+      </div>
+      <hr class="my-5">
+      <div class="row">
+        <div class="col-12">
+          <div class="text-center">
+            <p class="text-muted mb-0">2020 © HealthSpace. Designed by <a href="https://modeste-agbangla.me/">ModesteAGBANGLA</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

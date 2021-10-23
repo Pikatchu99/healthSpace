@@ -1,124 +1,21 @@
-
 <style>
-  * {
-      margin: 0;
-      padding: 0;
-      font-family: "Open Sans", sans-serif;
-      box-sizing: border-box;
-  }
-  
-  body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f1f1f1;
-  }
-  
-  .about-section {
-      background: url(https://fadzrinmadu.github.io/hosted-assets/responsive-about-us-section-using-html/pic.jpg) no-repeat left;
-      background-size: 55%;
-      background-color: #fdfdfd;
-      overflow: hidden;
-      padding: 100px 0;
-  }
-  
-  .inner-container {
-      width: 55%;
-      float: right;
-      background-color: #fdfdfd;
-      padding: 150px;
-  }
-  
-  .inner-container h1 {
-      margin-bottom: 30px;
-      font-size: 30px;
-      font-weight: 900;
-  }
-  
-  .text {
-      font-size: 13px;
-      color: #545454;
-      line-height: 30px;
-      text-align: justify;
-      margin-bottom: 40px;
-  }
-  
-  .skills {
-      display: flex;
-      justify-content: space-between;
-      font-weight: 700;
-      font-size: 13px;
-  }
-  
-  @media screen and (max-width:1200px) {
-      .inner-container {
-          padding: 80px;
-      }
-  }
-  
-  @media screen and (max-width:1000px) {
-      .about-section {
-          background-size: 100%;
-          padding: 100px 40px;
-      }
-      .inner-container {
-          width: 100%;
-      }
-  }
-  
-  @media screen and (max-width:600px) {
-      .about-section {
-          padding: 0;
-      }
-      .inner-container {
-          padding: 60px;
-      }
-  }
-  
-  .main-section {
-      float: left;
-      width: 100%;
-      display: block;
-      background: #7a91b4;
-      height: 100vh;
-  }
-  
-  .container {
-      float: left;
-      width: 80%;
-      margin: 2rem 10%;
-  }
-  
   .fullwidth-container {
       display: block;
       width: 80%;
       margin: 2rem 10%
   }
   
-  #faqs {}
   
   .line-heading {
       font-family: sans-serif;
       color: #60c0ba;
       font-weight: 600;
       line-height: 1.1;
-      display: flex;
       align-items: center;
       width: 90%;
       margin: 10px 0 0px 10%;
       white-space: nowrap;
       font-size: 26px;
-      text-shadow: 1px 1px 1px;
-  }
-  
-  h3.large-heading {
-      font-family: sans-serif;
-      margin: 0 0 0 10%;
-      font-size: 52px;
-      line-height: 1.1;
-      letter-spacing: -.045em;
-      color: #fff;
       text-shadow: 1px 1px 1px;
   }
   
@@ -190,33 +87,6 @@
       font-weight: 600;
       letter-spacing: .05rem;
   }
-  
-  #faqSection .faq-content ul {
-      border-left: 2px solid #00C58E
-  }
-  
-  #faqSection .faq-content li {
-      color: #bad2e2;
-      font-size: .85rem;
-      line-height: 160%;
-      font-weight: 200;
-      margin: 8px 0 8px 2%;
-      list-style: none;
-      width: 90%;
-      font-family: sans-serif;
-      text-shadow: 1px 1px;
-  }
-  
-  .myFooter p {
-      color: #fff;
-      font-family: sans-serif;
-      text-shadow: 1px 1px 0;
-  }
-  
-  .myFooter a {
-      color: #00C58E;
-      text-decoration: none
-  }
 </style>
 <% @title = "Aidez moi" %>
 <section class="" style="margin-top: 100px;">
@@ -239,23 +109,16 @@
         <button class="collapsible">Comment enregistrer des favoris?</button>
         <div class="faq-content">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat neque eu odio convallis, porta consequat erat rhoncus. Curabitur vulputate porttitor lectus, vitae tincidunt dolor eleifend vitae. Praesent sollicitudin eros in finibus posuere. Quisque at turpis arcu. Sed condimentum elit ac elit rhoncus, volutpat feugiat orci accumsan. Maecenas tincidunt diam odio, sit amet tincidunt est tincidunt at. Suspendisse luctus dolor quis aliquam pulvinar. Ut non neque in lorem ullamcorper faucibus. In et neque in sem ultrices mattis. Duis eu mauris urna. Suspendisse vitae suscipit odio, suscipit convallis odio. Integer at consectetur sapien. Mauris ex tortor, gravida vel diam sit amet, congue ullamcorper enim. Curabitur viverra bibendum leo, et condimentum enim efficitur eu. Ut euismod finibus ligula at volutpat. Nulla sit amet sem non elit posuere fringilla in eu justo.</p>
-          <ul>
-            <li>Custom LI</li>
-            <li>Custom LI</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat neque eu odio convallis, porta consequat erat rhoncus. Curabitur vulputate porttitor lectus, vitae tincidunt dolor eleifend vitae. Praesent sollicitudin eros in finibus posuere. Quisque at turpis arcu. Sed condimentum elit ac elit rhoncus, volutpat feugiat orci accumsan.Contact me via <a href="mailto:#" target="_blank">EMAIL</a> and I will be more than happy to answer your queries.</p>
         </div>
       </div>
       <div>
         <button class="collapsible">Comment voir mon profil ?</button>
         <div class="faq-content">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat neque eu odio convallis, porta consequat erat rhoncus. Curabitur vulputate porttitor lectus, vitae tincidunt dolor eleifend vitae. Praesent sollicitudin eros in finibus posuere. Quisque at turpis arcu. Sed condimentum elit ac elit rhoncus, volutpat feugiat orci accumsan.</p>
-          <p>Maecenas tincidunt diam odio, sit amet tincidunt est tincidunt at. Suspendisse luctus dolor quis aliquam pulvinar. Ut non neque in lorem ullamcorper faucibus. In et neque in sem ultrices mattis. Duis eu mauris urna. Suspendisse vitae suscipit odio, suscipit convallis odio. Integer at consectetur sapien. Mauris ex tortor, gravida vel diam sit amet, congue ullamcorper enim. Curabitur viverra bibendum leo, et condimentum enim efficitur eu. Ut euismod finibus ligula at volutpat. Nulla sit amet sem non elit posuere fringilla in eu justo.</p>
         </div>
         <button class="collapsible">Puis inscrire une pharmacie non officielle ?</button>
         <div class="faq-content">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat neque eu odio convallis, porta consequat erat rhoncus. Curabitur vulputate porttitor lectus, vitae tincidunt dolor eleifend vitae. Praesent sollicitudin eros in finibus posuere. Quisque at turpis arcu. Sed condimentum elit ac elit rhoncus, volutpat feugiat orci accumsan.</p>
-          <p>Maecenas tincidunt diam odio, sit amet tincidunt est tincidunt at. Suspendisse luctus dolor quis aliquam pulvinar. Ut non neque in lorem ullamcorper faucibus. In et neque in sem ultrices mattis. Duis eu mauris urna. Suspendisse vitae suscipit odio, suscipit convallis odio. Integer at consectetur sapien. Mauris ex tortor, gravida vel diam sit amet, congue ullamcorper enim. Curabitur viverra bibendum leo, et condimentum enim efficitur eu. Ut euismod finibus ligula at volutpat. Nulla sit amet sem non elit posuere fringilla in eu justo.</p>
         </div>
         <button class="collapsible">Quel sont les conditions pour etre accepter ?</button>
         <div class="faq-content">
@@ -264,12 +127,70 @@
         <button class="collapsible">Qui êtes vous même ?</button>
         <div class="faq-content">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat neque eu odio convallis, porta consequat erat rhoncus. Curabitur vulputate porttitor lectus, vitae tincidunt dolor eleifend vitae. Praesent sollicitudin eros in finibus posuere. Quisque at turpis arcu. Sed condimentum elit ac elit rhoncus, volutpat feugiat orci accumsan.</p>
-          <p>Maecenas tincidunt diam odio, sit amet tincidunt est tincidunt at. Suspendisse luctus dolor quis aliquam pulvinar. Ut non neque in lorem ullamcorper faucibus. In et neque in sem ultrices mattis. Duis eu mauris urna. Suspendisse vitae suscipit odio, suscipit convallis odio. Integer at consectetur sapien. Mauris ex tortor, gravida vel diam sit amet, congue ullamcorper enim. Curabitur viverra bibendum leo, et condimentum enim efficitur eu. Ut euismod finibus ligula at volutpat. Nulla sit amet sem non elit posuere fringilla in eu justo.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="" style="margin-top: 800px">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 text-md-center">
+        <div class="footer-info mt-4">
+          <img src="https://user-images.githubusercontent.com/72025145/137684945-16f6e824-e651-47a5-bded-13e990702f77.png" alt="" height="44">
+          <p class="text-muted mt-4 mb-2">Faites-nous confiance et restez en bonne santé.</p>
+          <div class="team-social mt-4 pt-2">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a href="#" class="text-reset"><i class="mdi mdi-facebook"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="text-reset"><i class="mdi mdi-twitter"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="text-reset"><i class="mdi mdi-google"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 text-md-center">
+        <div class="row  pl-0 md-lg-5">
+          <div class="col-lg-5">
+            <div class="mt-4">
+              <h5 class="f-20">Useful Links</h5>
+              <ul class="list-unstyled footer-link mt-3">
+                <li><a href="/" class="a-hover">Home</a></li>
+                <li><a href="<%= us_about_us_path %>" class="a-hover">À Propos De Nous</a></li>
+                <li><a href="<%= us_help_me_path %>" class="a-hover">Aidez Moi</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="mt-4">
+              <h5 class="f-20">Policits Links</h5>
+              <ul class="list-unstyled footer-link mt-3">
+                <li><a href="#" class="a-hover">Conditions d'utilisation</a></li>
+                <li><a href="#" class="a-hover">Politique de confidentialité</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1">
+      </div>
+    </div>
+    <hr class="my-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          <p class="text-muted mb-0">2020 © HealthSpace. Designed by <a href="https://modeste-agbangla.me/">ModesteAGBANGLA</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
   var coll = document.getElementsByClassName("collapsible");
   var i;
