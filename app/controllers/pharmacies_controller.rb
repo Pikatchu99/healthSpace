@@ -1,4 +1,6 @@
 class PharmaciesController < ApplicationController
+  before_action :is_pharmacien, only: %i[edit update destroy]
+  before_action :it_me, only: %i[edit update destroy]
   before_action :set_pharmacy, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
@@ -75,16 +77,16 @@ class PharmaciesController < ApplicationController
     if !current_user
       redirect_to new_user_session_path
     elsif current_user && current_user.user_role != "Pharmacien"
-      redirect_to pharmacies_path
+      redirect_to pharmacies_path, notice: "❌ Accès refusé ❌"
     else
       @pharmacy = Pharmacy.new
     end
   end
   
   def edit
-    if current_user.pharmacy.id != @pharmacy.id
-      redirect_to pharmacies_path, alert: "❌ Accès interdit. Veillez à ne plus le refaire s'il vous plaît.❌"
-    end
+    # if current_user.pharmacy.id != @pharmacy.id || current_user.user_role != "Pharmacien"
+      # redirect_to pharmacies_path, alert: "❌ Accès interdit. Veillez à ne plus le refaire s'il vous plaît.❌"
+    # end
   end
   
   def create
@@ -118,6 +120,22 @@ class PharmaciesController < ApplicationController
   private
   def set_pharmacy
     @pharmacy = Pharmacy.find(params[:id])
+  end
+
+  def is_pharmacien
+    unless current_user.user_role == "Pharmacien"
+      return redirect_to pharmacies_path, alert: "❌ Accès refusé ❌"
+    end
+  end
+
+  def it_me
+    if current_user.user_role == "Pharmacien"
+      if current_user.pharmacy.id != params[:id].to_i
+        return redirect_to pharmacies_path, alert: "❌ Accès refusé ❌"
+      end
+    else 
+      return redirect_to pharmacies_path, alert: "❌ Accès refusé ❌"
+    end
   end
   
   def pharmacy_params
