@@ -52,7 +52,7 @@ cities.each do |ci|
             user_id: patient.id,
             pharmacy_id: pharmacy.id,
         )
-        comment = Comments.create!(
+        comment = Comment.create!(
             pharmacy_id: pharmacy.id,
             user_id: patient.id,
             content: Faker::Lorem.sentences,
