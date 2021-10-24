@@ -278,7 +278,7 @@ describe 'Pharmacie disponible', type: :system do
       expect(page).to have_text "Pharmacy Détails"
       fill_in "comment[content]", with: "Je suis très content de cette pharmacie" 
       click_on "Comment"
-      expect(page).to have_text "Par username2"
+      expect(page).to have_text "username2"
       expect(page).to have_text "Je suis très content de cette pharmacie"
     end
   end
