@@ -39,6 +39,24 @@ cities.each do |ci|
             samedi: weeks.sample,
             dimanche: weeks.sample
         )
+        patient = User.create!(
+            name: Faker::Name.unique.name,
+            email: Faker::Internet.unique.email,
+            city: ci,
+            quartier: Faker::Address.street_name,
+            user_role: "Patient",
+            password: "......",
+            password_confirmation: "......"
+        )
+        favorites = Favorite.create!(
+            user_id: patient.id,
+            pharmacy_id: pharmacy.id,
+        )
+        comment = Comments.create!(
+            pharmacy_id: pharmacy.id,
+            user_id: patient.id,
+            content: Faker::Lorem.sentences,
+        )
         10.times do
             product = Product.create!(
                 pharmacy_id: pharmacy.id,

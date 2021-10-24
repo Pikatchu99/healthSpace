@@ -78,11 +78,13 @@ class PharmaciesController < ApplicationController
       redirect_to pharmacies_path
     else
       @pharmacy = Pharmacy.new
-
     end
   end
   
   def edit
+    if current_user.pharmacy.id != @pharmacy.id
+      redirect_to pharmacies_path, alert: "❌ Accès interdit. Veillez à ne plus le refaire s'il vous plaît.❌"
+    end
   end
   
   def create

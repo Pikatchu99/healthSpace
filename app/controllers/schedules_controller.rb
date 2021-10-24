@@ -4,11 +4,13 @@ class SchedulesController < ApplicationController
 
   # GET /schedules or /schedules.json
   def index
-    @schedules = Schedule.all
+    # @schedules = Schedule.all
+    redirect_to pharmacies_path, notice: "Veuillez vous rendre sur une pharmacie précise pour voir leurs horaires."
   end
 
   # GET /schedules/1 or /schedules/1.json
   def show
+    redirect_to pharmacies_path, notice: "Veuillez vous rendre sur une pharmacie précise pour voir leurs horaires."
   end
 
   # GET /schedules/new
@@ -18,6 +20,9 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
+    if current_user.pharmacy.id != @schedule.pharmacy.id
+      redirect_to pharmacies_path, alert: "❌ Accès interdit. Veillez à ne plus le refaire s'il vous plaît.❌"
+    end
   end
 
   # POST /schedules or /schedules.json

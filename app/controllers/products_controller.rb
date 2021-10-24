@@ -28,6 +28,9 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    if current_user.pharmacy.id != @product.pharmacy.id
+      redirect_to pharmacies_path, alert: "❌ Accès interdit. Veillez à ne plus le refaire s'il vous plaît.❌"
+    end
   end
 
   # POST /products or /products.json
