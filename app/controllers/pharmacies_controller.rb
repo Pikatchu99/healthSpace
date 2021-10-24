@@ -115,7 +115,9 @@ class PharmaciesController < ApplicationController
     end
   end
   
-
+  def destroy
+    redirect_to pharmacies_path, notice: "Impossible d'effectuer cette action."
+  end
   
   private
   def set_pharmacy

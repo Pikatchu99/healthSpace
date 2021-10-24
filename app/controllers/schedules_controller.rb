@@ -53,7 +53,9 @@ class SchedulesController < ApplicationController
       end
     end
   end
-
+  def destroy
+    redirect_to pharmacies_path, notice: "Impossible d'effectuer cette action."
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
