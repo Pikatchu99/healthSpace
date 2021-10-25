@@ -22,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
   
   def after_sign_in_path_for(resource_or_scope)
     if current_user.user_role == "Admin"
-      flash[:notice]=  "Bienvenue Admin #{current_user.name}. Voici votre écran d'administration. \n Pour acéder à votre profile Utilisateur cliquer sur le boutton Home en haut à droite."
+      flash[:notice] =  "Bienvenue Admin #{current_user.name}. Voici votre écran d'administration. \n Pour acéder à votre profile Utilisateur cliquer sur le boutton Home en haut à droite."
       rails_admin.dashboard_url
     elsif current_user.user_role == "Pharmacien" && current_user.pharmacy.nil?
       flash[:notice] = "Bon retour parmis nous.En tant que pharmacien vous devez crée votre pharmacie."

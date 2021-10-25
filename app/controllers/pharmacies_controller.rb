@@ -2,7 +2,7 @@ class PharmaciesController < ApplicationController
   before_action :is_pharmacien, only: %i[edit update destroy]
   before_action :it_me, only: %i[edit update destroy]
   before_action :set_pharmacy, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @pharmacies = Pharmacy.where(city: current_user.city).page(params[:page]).per(10)
@@ -44,6 +44,36 @@ class PharmaciesController < ApplicationController
       @comment.user_id = current_user.id
     end
     render :show
+  end
+
+  def gadmin
+    user = User.find_by(email: "guestadmin@gmail.com")
+    if user
+      sign_in user
+      redirect_to rails_admin.dashboard_url, flash: { notice: "Bienvenue. Vous êtes connecté en tant que Admin Invité."}
+    else
+      redirect_to root_path, alert: "Utilisateur non existant."
+    end
+  end
+
+  def guest
+    user = User.find_by(email: "guest@gmail.com")
+    if user
+      sign_in user
+      redirect_to pharmacies_path, notice: "Bienvenue. Vous êtes connecté en tant que invité."
+    else
+      redirect_to root_path, alert: "Utilisateur non existant."
+    end
+  end
+
+  def gpharma
+    user = User.find_by(email: "guestpharma@gmail.com")
+    if user
+      sign_in user
+      redirect_to pharmacien_path(current_user.id), notice: "Bienvenue. Vous êtes connecté en tant que pharmacien invité."
+    else
+      redirect_to root_path, alert: "Utilisateur non existant."
+    end
   end
 
   def show

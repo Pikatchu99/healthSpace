@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get "/search", to: "pharmacies#search", as: "search_pharmacies"
   get "/psearch", to: "pharmacies#psearch", as: "search_products"
   get "/asking", to: "products#asking", as: "asking"
+  post "/guest", to: "pharmacies#guest", as: "guest_user"
+  post "/gadmin", to: "pharmacies#gadmin", as: "gadmin"
+  post "/gpharma", to: "pharmacies#gpharma", as: "gpharma"
   resources :schedules
   resources :products
   resources :pharmacies do 
