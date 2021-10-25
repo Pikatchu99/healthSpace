@@ -5,8 +5,13 @@ class PharmaciesController < ApplicationController
   # before_action :authenticate_user!
 
   def index
-    @pharmacies = Pharmacy.where(city: current_user.city).page(params[:page]).per(10)
+    if !current_user
+      redirect_to root_path
+    else 
+      @pharmacies = Pharmacy.where(city: current_user.city).page(params[:page]).per(10)
+    end
   end
+
   def search
     session[:search] = {'name' => params[:pn], 'city' => params[:pc], 'quartier' => params[:pq], 'product' => params[:pr], 'availability' => params[:pa]}
     if params[:pn].present? && params[:pc].present? && params[:pq].present?
