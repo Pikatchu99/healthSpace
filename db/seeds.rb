@@ -78,3 +78,34 @@ User.create!(
     password: "......",
     password_confirmation: "......"
 )
+
+
+User.create(name: "Invité",
+    email: "guest@gmail.com",
+    city: "Cotonou",
+    quartier: "Sainte Rita",
+    user_role: "Patient",
+    password: "......",
+    password_confirmation: "......"
+)
+
+
+
+User.create(name: "Invité Pharmacien",
+    email: "guestpharma@gmail.com",
+    city: "Cotonou",
+    quartier: "Sainte Rita",
+    user_role: "Pharmacien",
+    password: "......",
+    password_confirmation: "......"
+)
+    
+
+User.create(name: "Invité Admin",
+    email: "guestadmin@gmail.com",
+    city: "Cotonou",
+    quartier: "Sainte Rita",
+    user_role: "Admin",
+    password: "......",
+    password_confirmation: "......"
+)
