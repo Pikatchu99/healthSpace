@@ -102,6 +102,7 @@
     <div class="ml-5"><a class="btn btn-outline-danger" data-confirm="Delete favorites ?" data-method="delete" href="<%= favorite_path(id: current_user.favorites.find_by(pharmacy_id: @pharmacy.id).id, pharmacy_id: @pharmacy.id) %>"> Delete an Favorite</a></div>
 <% else %>
     <div class="ml-5"><a class="btn btn-outline-success a-hover" data-method="post" href="<%= favorites_path(pharmacy_id: @pharmacy.id) %>"> Ajouter en favoris</a></div>
+    <%= link_to "Ecrire à la pharmacie", { :controller => "products", :action => "asking", :where => "direct" }, :class => "ml-2 btn btn-outline-success" %>
 <% end %>
  </div>
 <div class="container">
@@ -198,8 +199,8 @@
 <% else %>
   <p>Commentaires </p>
   <div id="comments_area" class="">
-    <%= render partial: 'comments/index', locals: { comments: @comments, pharmacy: @pharmacy } %>
+    <%= render partial: 'comments/index', locals: { comments: @comments, pharmacy: @pharmacy, user: @comment.user_id } %>
   </div>
-  <%= render partial: 'comments/form', locals: { comment: @comment, pharmacy: @pharmacy } %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, pharmacy: @pharmacy, user: @comment.user_id } %>
 <% end %>
 <%= link_to 'Retour', pharmacies_path, class:"btn btn-outline-success ml-5 mt-5 mb-5 text-center" %>

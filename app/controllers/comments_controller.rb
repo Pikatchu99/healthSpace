@@ -1,14 +1,19 @@
 class CommentsController < ApplicationController
     before_action :set_pharmacy, only: [:create, :edit, :update]
     before_action :authenticate_user!
+    
   def create
-    @pharmacy = Pharmacy.find(params[:pharmacy_id])
+    p @pharmacy
     @comment = @pharmacy.comments.build(comment_params)
     @comment.user_id = current_user.id
+
       respond_to do |format|
         if @comment.save
+          p 'yesssssssssssss'
+          p @comment
           format.js { render :index }
         else
+          p 'nooooooooooo'
           format.html { redirect_to pharmacy_path(@pharmacy), alert: 'Impossible de poster.' }
         end
       end

@@ -86,11 +86,16 @@ class PharmaciesController < ApplicationController
       flash[:alert] = "Veuillez créer votre pharmacie." 
       redirect_to new_pharmacy_path
     end
+
     @products = Product.where(pharmacy_id: @pharmacy.id)
     @comments = @pharmacy.comments
+    
     @comment = @pharmacy.comments.build
+
     @comment.user_id = current_user.id
+    
     @day = DateTime.now.strftime("%w").to_i
+    
     if @day == 1
       @when = @pharmacy.schedules[0].lundi
     elsif @day == 2
@@ -174,7 +179,7 @@ class PharmaciesController < ApplicationController
       return redirect_to pharmacies_path, alert: "❌ Accès refusé ❌"
     end
   end
-  
+
   def pharmacy_params
     params.require(:pharmacy).permit(:name, :email, :contact, :whatsapp, :city, :quartier)
   end
