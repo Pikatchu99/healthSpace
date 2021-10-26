@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-# Utilisateur ne disposant d'une pharmacie Patient 
+# Utilisateur ne disposant pas d'une pharmacie => Patient 
 describe 'User Patient signs up', type: :system do
   describe 'User inscription' do
     context "SIgn up with valid data" do
@@ -14,7 +14,7 @@ describe 'User Patient signs up', type: :system do
         fill_in 'user[password]', with: 'password'
         fill_in 'user[password_confirmation]', with: 'password'
         click_button "S'inscrire"
-        expect(page).to have_text 'Bienvenue! Inscription réussi avec succès.'
+        expect(page).to have_text 'Bienvenue, vous êtes connecté.'
         expect(page).to have_link 'Deconnexion'
       end
     end
@@ -24,11 +24,10 @@ describe 'User Patient signs up', type: :system do
       it "Sign Up failed" do
         visit new_user_registration_path
         click_button "S'inscrire"
-
-        expect(page).to have_text "Email can't be blank"
-        expect(page).to have_text "Password can't be blank"
-        expect(page).to have_text "Quartier doit être définie.!"
-        expect(page).to have_text "City doit être définie.!"
+        expect(page).to have_text "E-mail doit être rempli(e)"
+        expect(page).to have_text "Password doit être rempli(e)"
+        expect(page).to have_text "Quartier doit être rempli(e)"
+        expect(page).to have_text "Ville doit être rempli(e)"
         expect(page).to have_no_link 'Deconnexion'
       end
     end
@@ -41,7 +40,7 @@ describe 'User Patient signs up', type: :system do
         fill_in 'user[email]', with: 'username@example.com'
         fill_in 'user[password]', with: 'password'
         click_button "Se Connecter"
-        expect(page).to have_text 'Bon retour parmis nous'
+        expect(page).to have_text 'Connecté.'
         expect(page).to have_link 'Deconnexion'
       end
     end
@@ -53,7 +52,7 @@ describe 'User Patient signs up', type: :system do
         visit new_user_session_path
         fill_in 'user[email]', with: 'username@example.com'
         click_button "Se Connecter"
-        expect(page).to have_text 'Email ou mot de passe invalide.'
+        expect(page).to have_text 'Email et/ou mot de passe incorrect(s).'
       end
     end
   end
@@ -71,7 +70,7 @@ describe 'User Pharmacien signs up with pharmacie', type: :system do
         fill_in 'user[email]', with: 'username2@example.com'
         fill_in 'user[password]', with: 'password'
         click_button "Se Connecter"
-        expect(page).to have_text "Bon retour parmis nous.En tant que pharmacien vous devez crée votre pharmacie."
+        expect(page).to have_text "Connecté."
         fill_in 'pharmacy[name]', with: 'Pharmacy le Lycée'
         fill_in 'pharmacy[contact]', with: '96560024'
         fill_in 'pharmacy[whatsapp]', with: '96560024'
@@ -101,15 +100,15 @@ describe 'User Pharmacien signs up with pharmacie', type: :system do
         fill_in 'user[email]', with: 'username2@example.com'
         fill_in 'user[password]', with: 'password'
         click_button "Se Connecter"
-        expect(page).to have_text "Bon retour parmis nous.En tant que pharmacien vous devez crée votre pharmacie."
+        expect(page).to have_text "Connecté."
         fill_in 'pharmacy[name]', with: 'Pharmacy le Lycée'
         fill_in 'pharmacy[contact]', with: '+225 96560024'
         fill_in 'pharmacy[whatsapp]', with: '+225 96560024'
         select "Cotonou", from: 'pharmacy[city]'
         fill_in 'pharmacy[quartier]', with: 'Sainte Rita'
         click_button "Enregistrer ma pharmacie"
-        expect(page).to have_text "Contact is invalid"
-        expect(page).to have_text "Whatsapp is invalid"
+        expect(page).to have_text "Contact n'est pas valide"
+        expect(page).to have_text "Whatsapp n'est pas valide"
       end
     end
   end
@@ -121,7 +120,7 @@ describe 'User Pharmacien signs up with pharmacie', type: :system do
         fill_in 'user[email]', with: 'username2@example.com'
         fill_in 'user[password]', with: 'password'
         click_button "Se Connecter"
-        expect(page).to have_text "Bon retour parmis nous.En tant que pharmacien vous devez crée votre pharmacie."
+        expect(page).to have_text "Connecté."
         fill_in 'pharmacy[name]', with: 'Pharmacy le Lycée'
         fill_in 'pharmacy[contact]', with: '96560024'
         fill_in 'pharmacy[whatsapp]', with: '96560024'
@@ -154,7 +153,7 @@ describe 'User Pharmacien signs up with pharmacie', type: :system do
         fill_in 'user[email]', with: 'username@example.com'
         fill_in 'user[password]', with: 'password'
         click_button "Se Connecter"
-        expect(page).to have_text 'Bon retour parmis nous'
+        expect(page).to have_text 'Connecté.'
         click_on "Profile"
         expect(page).to have_link 'Editer mon Profil'
         expect(page).to have_text "Vous n'avez aucun favoris."
@@ -172,13 +171,13 @@ describe 'User Pharmacien signs up with pharmacie', type: :system do
         fill_in 'user[email]', with: 'username@example.com'
         fill_in 'user[password]', with: 'password'
         click_button "Se Connecter"
-        expect(page).to have_text 'Bon retour parmis nous'
+        expect(page).to have_text 'Connecté.'
         click_on "Profile"
         click_on "Editer mon Profil"
         fill_in "user[name]", with: "username222"
         fill_in "user[current_password]", with: "password"
         click_on "Mettre a jour"
-        expect(page).to have_text "Votre compte à été mis a jour avec succès."
+        expect(page).to have_text "Votre compte a été modifié avec succès."
       end
     end
   end
@@ -193,9 +192,9 @@ describe 'User deconnexion', type: :system do
       fill_in 'user[email]', with: 'username@example.com'
       fill_in 'user[password]', with: 'password'
       click_button "Se Connecter"
-      expect(page).to have_text 'Bon retour parmis nous'
+      expect(page).to have_text 'Connecté.'
       click_on "Deconnexion"
-      expect(page).to have_text 'Deconnexion réussi.'
+      expect(page).to have_text 'Déconnecté.'
     end
   end
 end
@@ -224,7 +223,7 @@ describe 'Pharmacie disponible', type: :system do
       fill_in 'user[email]', with: 'username@example.com'
       fill_in 'user[password]', with: 'password'
       click_button "Se Connecter"
-      expect(page).to have_text 'Bon retour parmis nous'
+      expect(page).to have_text 'Connecté.'
       expect(page).to have_text 'Pharmacie disponible dans votre ville.'
       expect(page).to have_text '2 Pharmacies trouvées'
       expect(page).to have_text 'Pharmacy la Grâce'
@@ -393,6 +392,11 @@ describe 'Pharmacie disponible', type: :system do
   end
 end
 
+
+
+
+
+
 describe 'Pharmacien peux creer un produit', type: :system do
   before do
     second_user = FactoryBot.create(:second_user)
@@ -496,7 +500,7 @@ describe "Administration", type: :system do
       fill_in 'user[password]', with: 'password'
       click_button "Se Connecter"
       visit "/admin"
-      expect(page).to have_text "Site Administration"
+      expect(page).to have_text "Administration"
     end
   end
 end

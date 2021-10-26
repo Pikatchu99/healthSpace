@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-    validates :name, presence: {message: " doit être définie.!", },  length: {minimum: 4, maximum: 150}
-    validates :description, presence: {message: " doit être définie.!", }, length: {minimum: 10, maximum: 500}
+    validates :name, presence: true,  length: {minimum: 4, maximum: 150}
+    validates :description, presence: true, length: {minimum: 10, maximum: 500}
     # validates :first_image, presence: true
     # validates :second_image, presence: true
 

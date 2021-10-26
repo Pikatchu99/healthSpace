@@ -31,7 +31,7 @@
                           <%= form_with(model: pharmacy, local: true) do |form| %>
                             <% if pharmacy.errors.any? %>
                               <div id="error_explanation">
-                                <h2><%= pluralize(pharmacy.errors.count, "error") %> prohibited this pharmacy from being saved:</h2>
+                                <h2><%= pluralize(pharmacy.errors.count, "erreurs") %> ont empêché ce(tte) pharmacie d'être sauvegardé(e) :</h2>
                                 <ul>
                                   <% pharmacy.errors.full_messages.each do |message| %>
                                     <li><%= message %></li>
@@ -41,29 +41,29 @@
                             <% end %>
                             <div class="form-group">
                               <%= form.label :name %><br />
-                              <%= form.text_field :name, class: "form-control", id: "pharmacyname" %>
+                              <%= form.text_field :name, class: "form-control", id: "pharmacyname", placeholder: "Nom de la Pharmacie" %>
                             </div>
                             <div class="form-group">
                               <%= form.label :contact %><br />
-                              <%= form.text_field :contact, class: "form-control", id: "pharmacyemail" %>
+                              <%= form.text_field :contact, class: "form-control", id: "pharmacyemail", placeholder: "Contact de la pharmacie" %>
                             </div>
                             <div class="form-group">
                               <%= form.label :whatsapp %><br />
                               <span style="font-size: 10px; color: red;">Veuillez entrer le numéro de téléphone sans le code pays et sans espace.</span><br/>
                               <span style="font-size: 10px; color: red;">Exemple: 96560010.</span>
-                              <%= form.text_field :whatsapp, class: "form-control", id: "pharmacywhatsapp" %>
+                              <%= form.text_field :whatsapp, class: "form-control", id: "pharmacywhatsapp", placeholder: "Contact whatsapp de la pharmacie" %>
                             </div>
                             <div class="form-group">
-                              <%= form.label :city %> of pharmacy<br />
+                              <%= form.label I18n.t("activerecord.attributes.pharmacy.city") %> de la pharmacie<br />
                               <%= form.select :city, [ "Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], class: "form-control", prompt: 'Ville' %>
                             </div>
                             <div class="form-group">
-                              <%= form.label :quartier %> or (neighborhood) of pharmacy<br />
+                              <%= form.label I18n.t("activerecord.attributes.pharmacy.quartier") %> de la pharmacie <br />
                               <span style="font-size: 10px; color: red;">Assurez-vous d'entrer le bon nom de votre quartier.</span>
-                              <%= form.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control" %>
+                              <%= form.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control", placeholder: "Quartier de la pharmacie" %>
                             </div>
                             <div class="mt-3">
-                              <%= form.submit "Enregistrer ma pharmacie", class: "btn btn-primary btn-block" %>
+                              <%= form.submit I18n.t("activerecord.attributes.pharmacy.save"), class: "btn btn-primary btn-block" %>
                             </div>
                           <% end %>
                         </div>

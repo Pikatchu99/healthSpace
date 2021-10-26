@@ -1,4 +1,4 @@
-<% @title = "HealthSpace - Editer mon profile" %> 
+<% @title = "HealthSpace - Editer mon profile" %>
 <section class="bg-account-pages vh-100">
   <div class="display-table">
     <div class="display-table-cell">
@@ -35,11 +35,11 @@
                             <div> <%= render "devise/shared/error_messages", resource: resource %> </div>
                             <div class="form-group">
                               <%= f.label :name %><br />
-                              <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", id: "firstname" %>
+                              <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", id: "firstname", placeholder: "Nom" %>
                             </div>
                             <div class="form-group">
                               <%= f.label :email %><br />
-                              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "email" %>
+                              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "email", placeholder: "Email" %>
                             </div>
                             <div class="form-group">
                               <%= f.label :city %><br />
@@ -48,18 +48,18 @@
                             <div class="form-group">
                               <%= f.label :quartier %><br />
                               <span style="font-size: 10px; color: red;">Assurez-vous d'entrer le bon nom de votre quartier.</span>
-                              <%= f.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control" %>
+                              <%= f.text_field :quartier, autofocus: true, autocomplete: "quartier", class: "form-control", placeholder: "Quartier" %>
                             </div>
                             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                             <% end %>
                             <div class="form-group">
                               <label >Who are you ?</label> <span class="text-info" style="font-size: 9px"><strong>Patient: I need find a pharmacy***Pharmcien: I have an Pharmacy</strong></span>
-                              <%= f.select :user_role, [ "Patient", "Pharmacien"], class: "form-control" %>
+                              <%= f.select :user_role, [ "Patient", "Pharmacien"], class: "form-control", placeholder: "Qui êtes vous ?" %>
                             </div>
                             <div class="form-group">
                               <%= f.label :password %><i>(leave blank if you don't want to change it)</i><br />
-                              <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+                              <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder: "Mot de passe" %>
                               <% if @minimum_password_length %>
                                 <br />
                                 <em><%= @minimum_password_length %> characters minimum</em>
@@ -67,11 +67,11 @@
                             </div>
                             <div class="form-group">
                               <%= f.label :password_confirmation %><br />
-                              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "userpasswordconfirmation" %>
+                              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "userpasswordconfirmation", placeholder: "Mot de passe de confirmation" %>
                             </div>
                             <div class="form-group">
                               <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                              <%= f.password_field :current_password, autocomplete: "current-password" %>
+                              <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Votre mot de passe actuel" %>
                             </div>
                             <div class="actions mt-3">
                               <%= f.submit "Mettre a jour", class: "btn btn-primary btn-block" %>

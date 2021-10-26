@@ -6,7 +6,7 @@ class PharmaciesController < ApplicationController
 
   def index
     if !current_user
-      redirect_to root_path
+      redirect_to new_user_session_path, notice: I18n.t("devise.failure.unauthenticated")
     else 
       @pharmacies = Pharmacy.where(city: current_user.city).page(params[:page]).per(10)
     end

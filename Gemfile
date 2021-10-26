@@ -21,6 +21,8 @@ gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
 gem 'mailgun-ruby', '~>1.2.5'
 gem 'faker'
 gem 'dotenv-rails'
+gem 'rails_admin-i18n'
+gem 'i18n_generators'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do

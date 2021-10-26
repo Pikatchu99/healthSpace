@@ -1,10 +1,10 @@
 class Pharmacy < ApplicationRecord
     # before_validation :parsing
-    validates :name, presence: {message: " doit être définie.!", }
+    validates :name, presence: true
     validates :contact, phone: { possible: true, allow_blank: false, types: [:voip, :mobile], countries: :bj }
     validates :whatsapp, phone: { possible: true, allow_blank: false, types: [:voip, :mobile], countries: :bj }
-    validates :city, presence: {message: " doit être définie.!", }
-    validates :quartier, presence: {message: " doit être définie.!", }
+    validates :city, presence: true
+    validates :quartier, presence: true
 
     belongs_to :user, optional: true
     has_many :products, dependent: :destroy

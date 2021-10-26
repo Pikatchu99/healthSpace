@@ -1,0 +1,67 @@
+fr:
+  activerecord:
+    models:
+      comment: Commentaires
+      favorite: Favoris
+      pharmacy: Pharmacie  
+      product: Produit  
+      schedule: Calendrier  
+      user: Utilisateur  
+
+    attributes:
+      comment:
+        content: Teneur  
+        pharmacy: Pharmacie
+
+      favorite:
+        pharmacy: Pharmacie
+        user: Utilisateur
+
+      pharmacy:
+        city: Ville  
+        comments: commentaires  
+        contact: Contact  
+        favorite_users: Utilisateurs favoris  
+        favorites: Favoris  
+        name: Nom  
+        products: Des produits  
+        quartier: Quartier  
+        schedules: Horaires d'ouvertures
+        user: Utilisateur
+        whatsapp: Whatsapp  
+        save: Enregistrer ma pharmacie
+
+      product:
+        available: Disponible  
+        description: Description  
+        first_image: Première image  
+        first_image_temp: Première Image temporaire
+        name: Nom  
+        pharmacy: Pharmacie
+        second_image: Deuxième image  
+        second_image_temp: Seconde image temporaire
+        submit: Enregistrer le produit
+
+      schedule:
+        dimanche: Dimanche  
+        jeudi: Jeudi  
+        lundi: Lundi  
+        mardi: Mardi  
+        mercredi: Mercredi  
+        pharmacy: Pharmacie
+        samedi: Samedi  
+        vendredi: Vendredi  
+
+      user:
+        city: Ville  
+        email: E-mail  
+        encrypted_password: Mot de passe crypté  
+        favorite_pharmacies: Pharmacies préférées  
+        favorites: Favoris  
+        name: Nom  
+        pharmacy: Pharmacie
+        quartier: Quartier  
+        remember_created_at: Rappelez-vous créé à  
+        reset_password_sent_at: Réinitialiser le mot de passe envoyé à  
+        reset_password_token: Réinitialiser le jeton de mot de passe  
+        user_role: Rôle d'utilisateur  

@@ -1,4 +1,4 @@
-<% @title = "HealthSpace - Inscription" %> 
+<% @title = "HealthSpace - Inscription" %>
 <div class="account-home-btn d-none d-sm-block">
 </div>
 <section class="bg-account-pages vh-100">
@@ -36,44 +36,44 @@
                           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                             <%= render "devise/shared/error_messages", resource: resource %>
                             <div class="form-group">
-                              <%= f.label :name %><br />
-                              <%= f.text_field :name, autocomplete: "name", class: "form-control", id: "firstname" %>
+                              <%= f.label I18n.t("activerecord.attributes.user.name") %><br />
+                              <%= f.text_field :name, autocomplete: "name", class: "form-control", id: "firstname", placeholder: "Nom" %>
                             </div>
                             <div class="form-group">
-                              <%= f.label :email %><br />
-                              <%= f.email_field :email, autocomplete: "email", class: "form-control", id: "email" %>
+                              <%= f.label I18n.t("activerecord.attributes.user.email") %><br />
+                              <%= f.email_field :email, autocomplete: "email", class: "form-control", id: "email", placeholder: "E-mail" %>
                             </div>
                             <div class="form-group">
-                              <label>Ville</label><br />
+                              <label><%= I18n.t("activerecord.attributes.user.city") %></label><br />
                               <%= f.select :city, ["Cotonou", "Abomey-Calavi", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Natitingou", "Savè", "Abomey", "Nikki", "Lokossa", "Ouidah", "Dogbo-Tota", "Kandi", "Covè", "Malanville", "Pobé", "Kérou", "Savalou", "Sakété", "Comè", "Bembéréké", "Bassila", "Banikoara", "Kétou"," Dassa-Zoumè", "Tchaourou", "Allada", "Aplahoué", "Tanguiéta", "N'Dali", "Segbana", "Athiémé", "Grand Popo", "Kouandé"], class: "form-control", prompt: 'Ville' %>
                             </div>
                             <div class="form-group">
-                              <label>Quartier</label><br />
+                              <label><%= I18n.t("activerecord.attributes.user.quartier")%></label><br />
                               <span style="font-size: 10px; color: red;">Assurez-vous d'entrer le bon nom de votre quartier.</span>
-                              <%= f.text_field :quartier, autocomplete: "quartier", class: "form-control" %>
+                              <%= f.text_field :quartier, autocomplete: "quartier", class: "form-control", placeholder: "Quartier" %>
                             </div>
                             <div class="form-group">
                               <label >Qui êtes vous ?</label> <br/>
                               <span class="text-info" style="font-size: 10px"><strong>Patient: Je cherche une pharmacie<br/>
                                   Pharmcien: J'ai une Pharmacie</strong></span><br/>
-                              <%= f.select :user_role, [ "Patient", "Pharmacien"], class: "form-control" %>
+                              <%= f.select :user_role, [ "Patient", "Pharmacien"], class: "form-control", prompt: 'Qui êtes vous ?' %>
                             </div>
                             <div class="form-group">
-                              <%= f.label :password %>
+                              <%= f.label I18n.t("label.user.password_label") %>
                               <% if @minimum_password_length %>
                                 <em>(<%= @minimum_password_length %> caractères minimum)</em>
                               <% end %><br />
-                              <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "userpassword" %>
+                              <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "userpassword", placeholder: "Mot de passe" %>
                             </div>
                             <div class="field">
-                              <%= f.label :password_confirmation %><br />
-                              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "userpasswordconfirmation" %>
+                              <%= f.label I18n.t("label.user.password_c_label") %><br />
+                              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "userpasswordconfirmation", placeholder: "Mot de passe de confirmation" %>
                             </div>
                             <div class="actions mt-3">
-                              <%= f.submit "S'inscrire", class: "btn btn-primary btn-block" %>
+                              <%= f.submit I18n.t("label.user.sign_up"), class: "btn btn-primary btn-block" %>
                             </div>
                             <div class="mt-4 mb-0 text-center">
-                              <p class="mb-0">J'ai deja un compte.<a href="<%= new_user_session_path %>" class="text-success">Se connecter</a></p>
+                              <p class="mb-0">J'ai deja un compte.<a href="<%= new_user_session_path %>" class="text-success"><%= I18n.t("label.user.sign_in") %></a></p>
                             </div>
                           <% end %>
                         </div>

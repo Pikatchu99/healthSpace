@@ -61,3 +61,12 @@ fr:
       not_saved:
         one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
         other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+  label:
+    user:
+      email_label: E-mail
+      password_label: Mot de passe
+      password_c_label: Mot de passe de confirmation
+      remember_me: Mémoriser mes infos
+      sign_in: Se Connecter
+      sign_up: S'inscrire
+      forget_password_label: Mot de passe oublié ?
