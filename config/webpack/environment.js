@@ -7,5 +7,7 @@ environment.plugins.prepend('Provide',
         jQuery: 'jquery/src/jquery'
     })
 )
-
+performance: {
+    hints: false
+};
 module.exports = environment
