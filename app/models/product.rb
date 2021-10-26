@@ -4,7 +4,7 @@ class Product < ApplicationRecord
     # validates :first_image, presence: true
     # validates :second_image, presence: true
 
-    belongs_to :pharmacy
+    belongs_to :pharmacy, optional: true
     mount_uploader :first_image, FirstImageUploader
     mount_uploader :second_image, SecondImageUploader
 

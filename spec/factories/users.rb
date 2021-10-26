@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user do
+  factory :user do  
     id {1}
     name {"username"}
     email { 'username@example.com' }

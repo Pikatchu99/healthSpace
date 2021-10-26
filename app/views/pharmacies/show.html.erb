@@ -197,7 +197,7 @@
 <% if current_user.user_role == "Pharmacien" && current_user.pharmacy.id == @pharmacy.id %>
   <div class="mb-5"></div>
 <% else %>
-  <p>Commentaires </p>
+  <p class="text-info text-center" style="font-size: 25px;">Lâchez nous un petit commentaires </p>
   <div id="comments_area" class="">
     <%= render partial: 'comments/index', locals: { comments: @comments, pharmacy: @pharmacy, user: @comment.user_id } %>
   </div>

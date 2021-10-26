@@ -9,11 +9,8 @@ class CommentsController < ApplicationController
 
       respond_to do |format|
         if @comment.save
-          p 'yesssssssssssss'
-          p @comment
           format.js { render :index }
         else
-          p 'nooooooooooo'
           format.html { redirect_to pharmacy_path(@pharmacy), alert: 'Impossible de poster.' }
         end
       end
@@ -26,6 +23,7 @@ class CommentsController < ApplicationController
       format.js { render :edit }
     end
   end
+  
   def update
     @comment = @pharmacy.comments.find(params[:id])
       respond_to do |format|

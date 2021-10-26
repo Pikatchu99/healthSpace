@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :favorite_pharmacies, through: :favorites, source: :pharmacy
 
   validates :user_role, presence: {message: " doit être définie.!", }, if: :validate_role?
+  validates :name, presence: true
   validates :quartier, presence: true
   validates :city, presence: true
 
